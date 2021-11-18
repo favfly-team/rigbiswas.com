@@ -1,5 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
+import FsLightbox from 'fslightbox-react';
 import YouTube from 'react-youtube';
+import { FaPlay } from 'react-icons/fa';
 import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../prismic-configuration';
 
@@ -16,6 +19,36 @@ const PortfolioDetailsSection = ({ slice }) => {
 			// controls: 0,
 		},
 	};
+
+	// =========== FOR FSLIGHTBOX =========
+	const [sources, setSources] = useState([]);
+	// ===== SLIDE STATE =====
+	const [lightboxController, setLightboxController] = useState({
+		toggler: false,
+		slide: 1,
+	});
+	// ===== HANDLE SLIDE NUMBER =====
+	const openLightboxOnSlide = (number) => {
+		setLightboxController({
+			toggler: !lightboxController.toggler,
+			slide: number,
+		});
+	};
+	// ===== GET STRUCTURED SOURCES =====
+	useEffect(() => {
+		let tempSources = [];
+		slice.items.map((item) => {
+			item.video_link.link_type == 'Web'
+				? tempSources.push(item?.video_link?.url)
+				: tempSources.push(item?.image?.large?.url);
+		});
+		setSources(tempSources);
+		return () => {
+			setSources([]);
+		};
+	}, [slice]);
+	// =========== END FSLIGHTBOX =========
+
 	return (
 		<section className='wrapper light-wrapper'>
 			<div className='container inner'>
@@ -37,22 +70,58 @@ const PortfolioDetailsSection = ({ slice }) => {
 				<div className='mt-60'>
 					<div className='row'>
 						{slice?.items?.map((item, index) => (
-							<GalleryItem key={index} data={item} />
+							<GalleryItem
+								key={index}
+								data={item}
+								index={index}
+								openLightboxOnSlide={openLightboxOnSlide}
+							/>
 						))}
 					</div>
 				</div>
 			</div>
+
+			<FsLightbox
+				toggler={lightboxController.toggler}
+				sources={sources}
+				slide={lightboxController.slide}
+			/>
 		</section>
 	);
 };
 
-const GalleryItem = ({ data }) => {
-	const { image } = data;
+const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
+	const { image, video_link } = data;
 	return (
-		<div className='item col-md-6 col-lg-4'>
+		<div
+			onClick={() => openLightboxOnSlide(index + 1)}
+			className='item col-md-6 col-lg-4'>
 			<figure className='overlay overlay1 rounded mb-30'>
+				{video_link.url && (
+					<button className=' play-btn position-absolute'>
+						<i className='text-white'>
+							<FaPlay />
+						</i>
+					</button>
+				)}
 				<img data-src={image?.url} alt={image?.alt} className='lozad' />
 			</figure>
+
+			<style jsx>{`
+				.play-btn {
+					transform: translate(-50%, -50%);
+					top: 50%;
+					left: 50%;
+					background: rgb(245 196 99 / 65%);
+					border: 0;
+					padding: 22px 50px;
+					font-size: 2rem;
+					z-index: 1;
+				}
+				.play-btn:hover {
+					background: rgb(245 196 99);
+				}
+			`}</style>
 		</div>
 	);
 };

@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useEffect, useState } from 'react';
+import FsLightbox from 'fslightbox-react';
 import { FaPlay } from 'react-icons/fa';
 import Link from 'next/link';
 import { RichText } from 'prismic-reactjs';
@@ -6,8 +8,21 @@ import { linkResolver } from '../../prismic-configuration';
 
 const FeaturedFilmSection = ({ slice }) => {
 	// console.log(slice);
-	const { image, heading, description, button_text, button_link } =
+	const { image, heading, description, video_link, button_text, button_link } =
 		slice?.primary;
+
+	const [sources, setSources] = useState([]);
+	const [toggler, setToggler] = useState(false);
+
+	useEffect(() => {
+		let tempSources = [video_link?.url];
+
+		setSources(tempSources);
+		return () => {
+			setSources([]);
+		};
+	}, [video_link]);
+
 	return (
 		<section>
 			<div className='wrapper bg-pastel-yellow'>
@@ -19,7 +34,9 @@ const FeaturedFilmSection = ({ slice }) => {
 								alt={image.alt}
 								className='img-fluid rounded w-100 lozad'
 							/>
-							<button className=' play-btn position-absolute'>
+							<button
+								onClick={() => setToggler(!toggler)}
+								className=' play-btn position-absolute'>
 								<i className='text-white'>
 									<FaPlay />
 								</i>
@@ -57,6 +74,13 @@ const FeaturedFilmSection = ({ slice }) => {
 					background: rgb(245 196 99);
 				}
 			`}</style>
+
+			<FsLightbox
+				toggler={toggler}
+				sources={sources}
+				disableLocalStorage={true}
+				// slide={lightboxController.slide}
+			/>
 		</section>
 	);
 };

@@ -15,7 +15,6 @@ const HeroSection = ({ slice }) => {
 					overflow: hidden;
 				}
 				.wrapper {
-					background-size: cover;
 					margin-top: 58px;
 					min-height: 75vh;
 				}
@@ -32,6 +31,7 @@ const HeroSection = ({ slice }) => {
 					width: 5076px;
 					animation: slide 40s linear infinite;
 					background: url(${background_image.url}) repeat-x;
+					background-size: contain;
 				}
 				@keyframes slide {
 					0% {
