@@ -7,7 +7,7 @@ const WhatsappButton = ({ number, text }) => {
 				<>
 					{/* ===== FOR MOBILE & TABLET */}
 					<a
-						href={`https://wa.me/${number}&text=${text}`}
+						href={`https://api.whatsapp.com/send?phone=${number}&text=${text}`}
 						target='_blank'
 						rel='noreferrer nofollow'
 						className='btn-whatsapp-pulse d-lg-none'>

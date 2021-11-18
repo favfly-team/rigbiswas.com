@@ -19,8 +19,8 @@ const Footer = () => {
 
 					<div className='col-md-4 text-center'>
 						<img
-							src='https://www.rigbiswas.com/wp-content/uploads/2020/02/rig-photography.png'
-							alt=''
+							src='https://images.prismic.io/rigbiswas/f0a7dc4e-1e1e-48ed-a30b-14097989d889_rig-photography-logo.png'
+							alt='Rig Photography Logo'
 						/>
 					</div>
 
