@@ -16,7 +16,7 @@ const GallerySection = ({ slice }) => {
 const GalleryItem = ({ data }) => {
 	const { image } = data;
 	return (
-		<div className='col-lg-4 p-0'>
+		<div className='col-lg-4 p-0 mb-0'>
 			<div className='img-box position-relative'>
 				<div className='wrapper'></div>
 				<img src={image.url} alt={image.alt} className='img-fluid' />

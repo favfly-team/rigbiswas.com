@@ -21,6 +21,7 @@ const HeroSection = ({ slice }) => {
 				h1 {
 					position: absolute;
 					color: #fff;
+					width: 100%;
 					max-width: 800px;
 					transform: translate(-50%, -50%);
 					left: 50%;

@@ -2,7 +2,7 @@
 const CounterSection = ({ slice }) => {
 	// console.log(slice);
 	return (
-		<section className='wrapper gray-wrapper'>
+		<section className='wrapper gray-wrapper overflow-hidden'>
 			<div className='container inner'>
 				<div className='row counter'>
 					{slice?.items?.map((item, index) => (

@@ -50,7 +50,7 @@ const ServiceItem = ({ data }) => {
 							data-image-src='style/images/art/fs1.jpg'></div>
 					</div>
 
-					<div className='container-fluid'>
+					<div className='container-fluid p-0'>
 						<div className='row'>
 							<div className='col-lg-6 offset-lg-6'>
 								<div className='box d-flex'>

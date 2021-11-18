@@ -32,7 +32,10 @@ const Header = () => {
 						</div>
 						<div className='navbar-hamburger ml-auto d-lg-none d-xl-none'>
 							<button
-								className='hamburger animate'
+								onClick={() => setShowMobileMenu(!showMobileMenu)}
+								className={`hamburger animate ${
+									showMobileMenu ? 'active' : ''
+								}`}
 								data-toggle='collapse'
 								data-target='.navbar-collapse'>
 								<span></span>
@@ -40,7 +43,11 @@ const Header = () => {
 						</div>
 					</div>
 
-					<div className='navbar-collapse collapse justify-content-between align-items-center'>
+					<div
+						onClick={() => setShowMobileMenu(false)}
+						className={`justify-content-between align-items-center ${
+							showMobileMenu ? '' : 'navbar-collapse collapse'
+						}`}>
 						<ul className='navbar-nav plain mx-auto text-center'>
 							<LinkItem text='Home' link='/' active={router.pathname == '/'} />
 							<LinkItem
@@ -166,7 +173,10 @@ const LinkItem = ({ text, link, active }) => {
 	return (
 		<li className='nav-item'>
 			<Link href={link}>
-				<a className={`nav-link font-weight-normal ${active ? 'active' : ''} `}>
+				<a
+					className={`nav-link font-weight-normal text-center ${
+						active ? 'active' : ''
+					} `}>
 					{text}
 				</a>
 			</Link>

@@ -96,7 +96,7 @@ const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
 		<div
 			onClick={() => openLightboxOnSlide(index + 1)}
 			className='item col-md-6 col-lg-4'>
-			<figure className='overlay overlay1 rounded mb-30'>
+			<figure className='overlay overlay1 rounded mb-md-4'>
 				{video_link.url && (
 					<button className=' play-btn position-absolute'>
 						<i className='text-white'>
