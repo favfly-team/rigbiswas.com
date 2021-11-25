@@ -5677,3 +5677,11 @@ pre {
 #nprogress .spinner-icon {
 	display: none !important;
 }
+
+.carousel .control-next.control-arrow:before {
+	border-left: 8px solid #000 !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+	border-right: 8px solid #000 !important;
+}

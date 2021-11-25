@@ -1,9 +1,80 @@
+import { useState } from 'react';
 import { RichText } from 'prismic-reactjs';
+import Airtable from 'airtable';
+
 import { linkResolver } from '../../prismic-configuration';
+
+const base = new Airtable({
+	apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
+}).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID);
 
 const ContactSection = ({ slice }) => {
 	// console.log(slice);
 	const { heading, contact_info } = slice.primary;
+
+	const [formData, setFormData] = useState({
+		name: '',
+		email: '',
+		phone: '',
+		date: '',
+		type: '',
+		location: '',
+		message: '',
+	});
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
+	const [success, setSuccess] = useState(false);
+
+	const handleChange = (e) => {
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		});
+		setError(null);
+		setSuccess(false);
+	};
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		setLoading(true);
+		try {
+			const data = await base('Bookings').create([
+				{
+					fields: {
+						Name: formData.name,
+						Email: formData.email,
+						Phone: formData.phone,
+						Date: formData.date,
+						'Type of shoot': formData.type,
+						Location: formData.location,
+						Message: formData.message,
+
+						Source: location.href,
+						Status: 'Todo',
+					},
+				},
+			]);
+
+			// console.log(data);
+
+			setFormData({
+				name: '',
+				email: '',
+				phone: '',
+				date: '',
+				type: '',
+				location: '',
+				message: '',
+			});
+			setSuccess(true);
+			setLoading(false);
+		} catch (error) {
+			setError(error);
+			console.log(error);
+			setLoading(false);
+		}
+	};
+
 	return (
 		<div className='wrapper light-wrapper'>
 			<div className='container inner pt-60'>
@@ -16,20 +87,18 @@ const ContactSection = ({ slice }) => {
 
 						<div className='space10'></div>
 						<div className='form-container'>
-							<form
-								action='contact/vanilla-form.php'
-								method='post'
-								className='vanilla vanilla-form'
-								noValidate>
+							<form onSubmit={handleSubmit} className='vanilla vanilla-form'>
 								<div className='row'>
 									<div className='col-md-6 pr-10'>
 										<div className='form-group'>
 											<input
 												type='text'
-												className='form-control'
 												name='name'
+												value={formData.name}
+												onChange={handleChange}
+												className='form-control'
 												placeholder='Your name'
-												required='required'
+												required
 											/>
 										</div>
 									</div>
@@ -38,10 +107,12 @@ const ContactSection = ({ slice }) => {
 										<div className='form-group'>
 											<input
 												type='email'
-												className='form-control'
 												name='email'
+												value={formData.email}
+												onChange={handleChange}
+												className='form-control'
 												placeholder='Your e-mail'
-												required='required'
+												required
 											/>
 										</div>
 									</div>
@@ -50,9 +121,12 @@ const ContactSection = ({ slice }) => {
 										<div className='form-group'>
 											<input
 												type='tel'
+												name='phone'
+												value={formData.phone}
+												onChange={handleChange}
 												className='form-control'
-												name='tel'
 												placeholder='Phone no.'
+												required
 											/>
 										</div>
 									</div>
@@ -61,15 +135,23 @@ const ContactSection = ({ slice }) => {
 										<div className='form-group'>
 											<input
 												type='date'
-												className='form-control'
 												name='date'
+												value={formData.date}
+												onChange={handleChange}
+												className='form-control'
 												placeholder='Main Shoot Date'
+												required
 											/>
 										</div>
 									</div>
 									<div className='col-md-6 pl-10'>
 										<div className='form-group'>
-											<select className='custom-select' required>
+											<select
+												name='type'
+												value={formData.type}
+												onChange={handleChange}
+												className='custom-select'
+												required>
 												<option defaultValue value=''>
 													Type of Shoot
 												</option>
@@ -83,8 +165,10 @@ const ContactSection = ({ slice }) => {
 										<div className='form-group'>
 											<input
 												type='text'
+												name='location'
+												value={formData.location}
+												onChange={handleChange}
 												className='form-control'
-												name='subject'
 												placeholder='Shoot Location'
 											/>
 										</div>
@@ -93,20 +177,35 @@ const ContactSection = ({ slice }) => {
 									<div className='col-12'>
 										<textarea
 											name='message'
+											value={formData.message}
+											onChange={handleChange}
 											className='form-control'
 											rows='3'
 											placeholder='If there are any details you want us to know, please share! '
 											required></textarea>
 										<div className='space20'></div>
-										<button
-											type='submit'
-											className='btn'
-											data-error='Fix errors'
-											data-processing='Sending...'
-											data-success='Thank you!'>
-											Submit
+										<button type='submit' className='btn'>
+											{loading ? 'Sending...' : 'Submit'}
 										</button>
-										<footer className='notification-box'></footer>
+										<footer
+											className={`notification-box mb-50 ${
+												success ? 'show-success' : error ? 'show-error' : ''
+											}`}>
+											{error && (
+												<div className='col-lg-12 col-md-12 col-sm-12 mb-4'>
+													<p className='text-danger text-center h2'>
+														{error.message}
+													</p>
+												</div>
+											)}
+											{success && (
+												<div className='col-lg-12 col-md-12 col-sm-12 mb-4'>
+													<p className='text-success text-center h2'>
+														Thanks, we will contact you soon.
+													</p>
+												</div>
+											)}
+										</footer>
 									</div>
 								</div>
 							</form>

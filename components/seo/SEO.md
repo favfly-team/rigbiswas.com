@@ -3,7 +3,7 @@
 "config" : {
 "single" : "heading1",
 "label" : "Title",
-"placeholder" : "Page Title [30-65 chars]"
+"placeholder" : "Page Title [40-65 chars]"
 }
 },
 "description" : {

@@ -1,4 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
+import CountUp from 'react-countup';
+import VisibilitySensor from 'react-visibility-sensor';
+
 const CounterSection = ({ slice }) => {
 	// console.log(slice);
 	return (
@@ -29,7 +32,22 @@ const CounterItem = ({ data }) => {
 						/>
 					</div>
 					<div>
-						<h3 className='value'>{number[0]?.text}</h3>
+						<h3 className='value'>
+							<VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+								{({ isVisible }) => (
+									<div style={{ height: 45 }}>
+										{isVisible ? (
+											<CountUp
+												start={50}
+												end={parseInt(number[0]?.text, 10)}
+												duration={3}
+											/>
+										) : null}
+										+
+									</div>
+								)}
+							</VisibilitySensor>
+						</h3>
 						<p>{title[0]?.text}</p>
 					</div>
 				</div>

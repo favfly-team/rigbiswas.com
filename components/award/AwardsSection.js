@@ -22,8 +22,8 @@ const AwardsSection = ({ slice }) => {
 					autoPlay
 					interval={3500}
 					infiniteLoop
-					showArrows={false}
-					showIndicators={false}
+					showArrows
+					showIndicators
 					showThumbs={false}>
 					{slice?.items.map((item, index) => (
 						<FeaturedReview key={index} data={item} />

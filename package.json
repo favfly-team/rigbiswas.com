@@ -25,9 +25,12 @@
 		"nprogress": "^0.2.0",
 		"prismic-reactjs": "^1.3.4",
 		"react": "17.0.2",
+		"react-countup": "^6.1.0",
+		"react-cta-buttons": "^2.0.0",
 		"react-dom": "17.0.2",
 		"react-icons": "^4.3.1",
 		"react-responsive-carousel": "^3.2.22",
+		"react-visibility-sensor": "^5.1.1",
 		"react-youtube": "^7.13.1"
 	},
 	"devDependencies": {
