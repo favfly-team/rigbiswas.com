@@ -51,9 +51,14 @@ const Header = () => {
 						<ul className='navbar-nav plain mx-auto text-center'>
 							<LinkItem text='Home' link='/' active={router.pathname == '/'} />
 							<LinkItem
-								text='Portfolio'
-								link='/portfolio'
-								active={router.asPath.includes('/portfolio')}
+								text='Weddings'
+								link='/wedding-portfolio'
+								active={router.pathname == '/wedding-portfolio'}
+							/>
+							<LinkItem
+								text='Kids Zone'
+								link='/kids-portfolio'
+								active={router.pathname == '/kids-portfolio'}
 							/>
 							<LinkItem
 								text='Films'

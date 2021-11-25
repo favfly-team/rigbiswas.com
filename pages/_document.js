@@ -60,6 +60,10 @@ class MyDocument extends Document {
 						async
 						defer
 						src='https://static.cdn.prismic.io/prismic.js?new=true&repo=rigbiswas'></script>
+					<script
+						defer
+						data-domain='rigbiswas.com'
+						src='https://plausible.io/js/plausible.js'></script>
 				</Head>
 				<body>
 					<Main />

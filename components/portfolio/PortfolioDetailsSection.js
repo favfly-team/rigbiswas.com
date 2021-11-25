@@ -8,7 +8,7 @@ import { linkResolver } from '../../prismic-configuration';
 
 const PortfolioDetailsSection = ({ slice }) => {
 	// console.log(slice);
-	const { heading, details, video_id } = slice.primary;
+	const { image, heading, details, video_id } = slice.primary;
 	const opts = {
 		playerVars: {
 			autoplay: 0,
@@ -52,13 +52,17 @@ const PortfolioDetailsSection = ({ slice }) => {
 	return (
 		<section className='wrapper light-wrapper'>
 			<div className='container inner'>
-				<div className='video-wrapper'>
-					<YouTube
-						className='bg-pastel-yellow'
-						videoId={video_id?.[0]?.text}
-						opts={opts}
-					/>
-				</div>
+				{video_id?.[0]?.text ? (
+					<div className='video-wrapper bg-pastel-yellow'>
+						<YouTube
+							className='bg-pastel-yellow'
+							videoId={video_id?.[0]?.text}
+							opts={opts}
+						/>
+					</div>
+				) : (
+					<img src={image?.thumbnail?.url} className='img-fluid' alt='' />
+				)}
 
 				<div className='gray-wrapper mt-60 px-5 py-4'>
 					<h1 className='text-center'>{heading[0]?.text}</h1>

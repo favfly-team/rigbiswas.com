@@ -22,8 +22,8 @@ const PortfolioPage = ({ doc }) => {
 	return (
 		<>
 			<NextSeo
-				title='Photography Portfolio From Rig Photography'
-				description='Make your best moment more special through Best Wedding Videography by Rig Photography, a highly professional wedding Photography & Videography team.'
+				title='Kids Photography Portfolio From Rig Photography'
+				description='Make your best moment more special through Best Kids Videography by Rig Photography, a highly professional kids Photography & Videography team.'
 				canonical='https://rigbiswas.com/portfolio'
 			/>
 			<SecondaryHeroSection
@@ -33,14 +33,14 @@ const PortfolioPage = ({ doc }) => {
 							{
 								spans: [],
 								type: 'heading1',
-								text: 'Photography Portfolio From Rig Photography',
+								text: 'Kids Photography Portfolio From Rig Photography',
 							},
 						],
 						description: [
 							{
 								spans: [],
 								type: 'paragraph',
-								text: 'Make your best moment more special through Best Wedding Videography by Rig Photography, a highly professional wedding Photography & Videography team in Kolkata.',
+								text: 'Make your best moment more special through Best Kids Videography by Rig Photography, a highly professional kids Photography & Videography team in Kolkata.',
 							},
 						],
 					},
@@ -70,7 +70,7 @@ const PortfolioItem = ({ data, uid }) => {
 	return (
 		<div className='item col-md-6 col-lg-4'>
 			<figure className='overlay overlay1 rounded mb-20'>
-				<Link href={`/portfolio/${uid}`}>
+				<Link href={`/kids-portfolio/${uid}`}>
 					<a>
 						<img data-src={image.url} alt={image.alt} className='lozad' />
 					</a>
@@ -91,7 +91,10 @@ export async function getStaticProps() {
 	const doc = await client.query({
 		query: gql`
 			query {
-				allPortfolio_pages(sortBy: published_date_DESC) {
+				allPortfolio_pages(
+					sortBy: published_date_DESC
+					where: { type: "Kids" }
+				) {
 					edges {
 						node {
 							_meta {
