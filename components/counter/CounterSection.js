@@ -33,7 +33,7 @@ const CounterItem = ({ data }) => {
 					</div>
 					<div>
 						<h3 className='value'>
-							<VisibilitySensor partialVisibility offset={{ bottom: 200 }}>
+							<VisibilitySensor partialVisibility offset={{ bottom: 10 }}>
 								{({ isVisible }) => (
 									<div style={{ height: 45 }}>
 										{isVisible ? (

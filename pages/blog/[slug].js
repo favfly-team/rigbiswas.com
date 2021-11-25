@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import lozad from 'lozad';
 import { NextSeo } from 'next-seo';
+import Prismic from '@prismicio/client';
 import { Client } from '../../utils/prismicHelpers';
 import { queryRepeatableDocuments } from '../../utils/queries';
 
 import BlogPostSection from '../../components/blog/BlogPostSection';
 import CtaFormSection from '../../components/cta/CtaFormSection';
+import BlogsSection from '../../components/blog/BlogsSection';
 
-const BlogPostPage = ({ doc }) => {
+const BlogPostPage = ({ doc, blogPosts }) => {
 	// ========== LOZAD INSTANTIATE ==========
 	useEffect(() => {
 		const observer = lozad('.lozad', {
@@ -98,6 +100,8 @@ const BlogPostPage = ({ doc }) => {
 					},
 				}}
 			/>
+
+			<BlogsSection posts={blogPosts} />
 		</>
 	);
 };
@@ -127,6 +131,11 @@ export async function getStaticProps({
 		(await client.getByUID('blog_post', params.slug, ref ? { ref } : null)) ||
 		{};
 
+	const blogPosts = await client.query(
+		Prismic.Predicates.at('document.type', 'blog_post'),
+		{ pageSize: 3, orderings: '[my.blog_post.published_date desc]' }
+	);
+
 	if (doc.id == undefined) {
 		return {
 			props: null,
@@ -138,6 +147,7 @@ export async function getStaticProps({
 		props: {
 			doc,
 			preview,
+			blogPosts,
 		},
 		revalidate: 60,
 	};

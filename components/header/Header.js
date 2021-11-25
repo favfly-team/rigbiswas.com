@@ -94,9 +94,9 @@ const Header = () => {
 								}
 							/>
 							<LinkItem
-								text='Carrer'
-								link='/carrer'
-								active={router.pathname == '/carrer'}
+								text='Join Us'
+								link='/join-us'
+								active={router.pathname == '/join-us'}
 							/>
 							{/* <li className='nav-item dropdown'>
 								<a className='nav-link dropdown-toggle' href='#'>
