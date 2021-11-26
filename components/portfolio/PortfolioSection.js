@@ -25,7 +25,7 @@ const PortfolioItem = ({ data }) => {
 	return (
 		<div className='item col-md-6 col-lg-4'>
 			<figure className='overlay overlay1 rounded mb-20'>
-				<Link href={`/portfolio/${link?.uid}`}>
+				<Link href={`/wedding-portfolio/${link?.uid}`}>
 					<a>
 						<img data-src={image.url} alt={image.alt} className='lozad' />
 					</a>
