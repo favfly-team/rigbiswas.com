@@ -5,6 +5,7 @@ import {
 	FaYoutube,
 	FaPinterest,
 	Fa500Px,
+	FaHeart,
 } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
 
@@ -14,7 +15,9 @@ const Footer = () => {
 			<div className='container inner'>
 				<div className='row d-md-flex align-items-md-center'>
 					<div className='col-md-4 text-center text-md-left'>
-						<p className='mb-0'>© 2021 Rig Photography. All rights reserved.</p>
+						<p className='mb-0'>
+							© {new Date().getFullYear()} Rig Photography. All rights reserved.
+						</p>
 					</div>
 
 					<div className='col-md-4 text-center'>
@@ -72,6 +75,25 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
+
+			{/* ========== FAVFLY ========= */}
+			<div className='divider-icon'>
+				<i className='fa'>
+					<FaHeart />
+				</i>
+			</div>
+			<a
+				title='Best digital marketing company in kolkata'
+				href='https://favfly.com?ref=rigbiswas.com'
+				className='text-center py-3 font-weight-bold white d-block letterspace-1'>
+				Growing with Favfly
+			</a>
+
+			<style jsx>{`
+				.divider-icon {
+					color: #fa2b57;
+				}
+			`}</style>
 		</footer>
 	);
 };

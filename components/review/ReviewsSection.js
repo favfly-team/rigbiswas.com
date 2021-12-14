@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../prismic-configuration';
 
@@ -20,9 +21,14 @@ const ReviewsSection = ({ slice }) => {
 
 const ReviewItem = ({ data }) => {
 	const { image, name, review } = data;
+	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className='col-lg-4'>
-			<div className='cbp-item rounded overflow-hidden'>
+			<div
+				onClick={() => setIsOpen(!isOpen)}
+				className={`cbp-item rounded overflow-hidden ${
+					isOpen ? '' : 'review'
+				}`}>
 				<div className='bg-white shadow'>
 					<img data-src={image.url} alt={image.alt} className='w-100 lozad' />
 					<div className='mt-20 p-4'>

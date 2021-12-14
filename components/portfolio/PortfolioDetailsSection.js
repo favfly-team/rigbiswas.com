@@ -100,9 +100,9 @@ const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
 		<div
 			onClick={() => openLightboxOnSlide(index + 1)}
 			className='item col-md-6 col-lg-4'>
-			<figure className='overlay overlay1 rounded mb-md-4'>
+			<figure className='overlay overlay1 rounded mb-md-4 gallery-item'>
 				{video_link.url && (
-					<button className=' play-btn position-absolute'>
+					<button className='play-btn position-absolute'>
 						<i className='text-white'>
 							<FaPlay />
 						</i>
@@ -124,6 +124,9 @@ const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
 				}
 				.play-btn:hover {
 					background: rgb(245 196 99);
+				}
+				figure {
+					cursor: pointer;
 				}
 			`}</style>
 		</div>

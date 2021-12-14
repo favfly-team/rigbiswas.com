@@ -88,7 +88,7 @@ const BlogItem = ({ data }) => {
 				</Link>
 			</figure>
 			<h4 className='post-title mb-10 font-weight-normal'>
-				<Link href={`/blog/${data?.uid}`}>
+				<Link href={`/blog/${_meta?.uid}`}>
 					<a>{title?.[0]?.text}</a>
 				</Link>
 			</h4>

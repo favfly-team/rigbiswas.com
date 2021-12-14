@@ -491,8 +491,6 @@ hr.double {
 .divider-icon {
 	border: 0;
 	position: relative;
-	padding-top: 70px;
-	padding-bottom: 70px;
 }
 .divider-icon.w300 {
 	width: 300px;
@@ -514,7 +512,7 @@ hr.double {
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	font-size: 18px;
-	color: rgba(0, 0, 0, 0.1);
+	color: #f5c463;
 }
 .divider-icon i[class*='si-'] {
 	font-size: 30px;
@@ -5632,6 +5630,14 @@ pre {
 
 .figure-caption.position-absolute {
 	bottom: 6px;
+}
+
+.review blockquote p {
+	display: -webkit-box;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .details-box h2,
