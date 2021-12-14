@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../prismic-configuration';
+import { RiLeafFill } from 'react-icons/ri';
 
 const AboutSection = ({ slice }) => {
 	// console.log(slice);
@@ -47,7 +48,9 @@ const ListItem = ({ data, index }) => {
 		<div className='d-flex flex-row justify-content-lg-center'>
 			<div>
 				<div className='icon fs-30 font-title icon-bg icon-bg-s bg-pastel-yellow color-yellow mr-25'>
-					<span className='number'>{index + 1}</span>
+					<span className='number'>
+						<RiLeafFill />
+					</span>
 				</div>
 			</div>
 			<div>
