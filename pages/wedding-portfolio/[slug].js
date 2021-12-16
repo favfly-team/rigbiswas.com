@@ -21,7 +21,10 @@ const PorfolioSinglePage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/' />
+			<SEO
+				doc={doc}
+				url={`https://rigbiswas.com/wedding-portfolio/${doc?.uid}`}
+			/>
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);
@@ -29,7 +32,7 @@ const PorfolioSinglePage = ({ doc }) => {
 
 export async function getStaticPaths() {
 	const documents = await queryRepeatableDocuments(
-		(doc) => doc.type === 'portfolio_page'
+		(doc) => doc.data.type === 'Wedding'
 	);
 	return {
 		paths: documents.map((doc) => {

@@ -5649,6 +5649,13 @@ pre {
 .award img {
 	min-width: 300px;
 }
+.service-item p {
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 
 @media only screen and (max-width: 576px) {
 	.heading h1,

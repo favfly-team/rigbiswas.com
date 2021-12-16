@@ -82,8 +82,8 @@ const Header = () => {
 							/>
 							<LinkItem
 								text='Reviews'
-								link='/reviews'
-								active={router.pathname == '/reviews'}
+								link='/client-reviews'
+								active={router.pathname == '/client-reviews'}
 							/>
 							<LinkItem
 								text='Blog'

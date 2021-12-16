@@ -53,7 +53,7 @@ const ServiceItem = ({ data }) => {
 					<div className='container-fluid p-0'>
 						<div className='row'>
 							<div className='col-lg-6 offset-lg-6'>
-								<div className='box d-flex'>
+								<div className='box service-item d-flex'>
 									<div className='align-self-center'>
 										<h3 className='mb-15 font-weight-normal'>
 											<Link href={`/${link?.uid}`}>

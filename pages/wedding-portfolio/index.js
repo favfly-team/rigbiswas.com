@@ -24,7 +24,7 @@ const PortfolioPage = ({ doc }) => {
 			<NextSeo
 				title='Wedding Photography Portfolio From Rig Photography'
 				description='Make your best moment more special through Best Wedding Videography by Rig Photography, a highly professional wedding Photography & Videography team.'
-				canonical='https://rigbiswas.com/portfolio'
+				canonical='https://rigbiswas.com/wedding-portfolio'
 			/>
 			<SecondaryHeroSection
 				slice={{

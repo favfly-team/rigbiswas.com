@@ -21,7 +21,7 @@ const ServicePage = ({ doc, blogPosts }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/' />
+			<SEO doc={doc} url={`https://rigbiswas.com/${doc?.uid}`} />
 			<SliceZone sliceZone={doc.data.body} />
 			<BlogsSection posts={blogPosts} />
 		</>
