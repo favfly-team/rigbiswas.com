@@ -19,6 +19,7 @@
 		"fslightbox-react": "^1.6.2-2",
 		"graphql": "^15.7.2",
 		"graphql-tag": "^2.12.5",
+		"instagram-scraping": "^1.0.17",
 		"lozad": "^1.16.0",
 		"next": "12.0.2",
 		"next-seo": "^4.28.1",

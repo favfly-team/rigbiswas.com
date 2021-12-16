@@ -7,7 +7,7 @@ import SEO from '../components/seo/SEO';
 
 import BlogsSection from '../components/blog/BlogsSection';
 
-const IndexPage = ({ doc, blogPosts }) => {
+const IndexPage = ({ doc, blogPosts, posts }) => {
 	// console.log(blogPosts);
 	// ========== LOZAD INSTANTIATE ==========
 	useEffect(() => {
