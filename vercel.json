@@ -65,6 +65,26 @@
 			"destination": "/"
 		},
 		{
+			"source": "/fullscreen/fullscreen-slideshow",
+			"destination": "/"
+		},
+		{
+			"source": "/pre-wedding-photography-2",
+			"destination": "/pre-wedding-photography"
+		},
+		{
+			"source": "/maternity-and-new-born-baby-photography",
+			"destination": "/baby-photoshoot"
+		},
+		{
+			"source": "/wp-content/*",
+			"destination": "/"
+		},
+		{
+			"source": "/tag/*",
+			"destination": "/photography-blog"
+		},
+		{
 			"source": "/category/*",
 			"destination": "/photography-blog"
 		}
