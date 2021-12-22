@@ -2,7 +2,11 @@
 	"redirects": [
 		{
 			"source": "/bengali-wedding",
-			"destination": "/bengali-wedding-photography/"
+			"destination": "/bengali-wedding-photography"
+		},
+		{
+			"source": "/blog",
+			"destination": "/photography-blog"
 		}
 	]
 }
