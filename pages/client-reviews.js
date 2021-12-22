@@ -17,7 +17,7 @@ const ReviewsPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/client-reviews/' />
+			<SEO doc={doc} url='https://rigbiswas.com/client-reviews' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

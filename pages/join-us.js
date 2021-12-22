@@ -17,7 +17,7 @@ const JoinUsPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/join-us/' />
+			<SEO doc={doc} url='https://rigbiswas.com/join-us' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

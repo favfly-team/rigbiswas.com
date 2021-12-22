@@ -17,7 +17,7 @@ const AboutPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/about-rig/' />
+			<SEO doc={doc} url='https://rigbiswas.com/about-rig' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

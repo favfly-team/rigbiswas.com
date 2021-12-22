@@ -17,7 +17,7 @@ const ContactPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/contact/' />
+			<SEO doc={doc} url='https://rigbiswas.com/contact' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

@@ -17,7 +17,7 @@ const ServicesPage = ({ doc }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/photography-services/' />
+			<SEO doc={doc} url='https://rigbiswas.com/photography-services' />
 			<SliceZone sliceZone={doc.data.body} />
 		</>
 	);

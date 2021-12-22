@@ -20,7 +20,7 @@ const IndexPage = ({ doc, blogPosts, posts }) => {
 	// ========== END ==========
 	return (
 		<>
-			<SEO doc={doc} url='https://rigbiswas.com/' />
+			<SEO doc={doc} url='https://rigbiswas.com' />
 			<SliceZone sliceZone={doc.data.body} />
 			<BlogsSection posts={blogPosts} />
 		</>

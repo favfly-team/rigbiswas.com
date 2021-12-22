@@ -24,7 +24,7 @@ const PortfolioPage = ({ doc }) => {
 			<NextSeo
 				title='Kids Photography Portfolio From Rig Photography'
 				description='Make your best moment more special through Best Kids Videography by Rig Photography, a highly professional kids Photography & Videography team.'
-				canonical='https://rigbiswas.com/portfolio'
+				canonical='https://rigbiswas.com/kids-portfolio'
 			/>
 			<SecondaryHeroSection
 				slice={{
