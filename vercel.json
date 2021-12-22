@@ -7,6 +7,66 @@
 		{
 			"source": "/blog",
 			"destination": "/photography-blog"
+		},
+		{
+			"source": "/packages",
+			"destination": "/photography-services"
+		},
+		{
+			"source": "/portfolios",
+			"destination": "/wedding-portfolio"
+		},
+		{
+			"source": "/proofing",
+			"destination": "/"
+		},
+		{
+			"source": "/wedding-stories",
+			"destination": "/wedding-portfolio"
+		},
+		{
+			"source": "/test-2",
+			"destination": "/"
+		},
+		{
+			"source": "/home-2",
+			"destination": "/"
+		},
+		{
+			"source": "/anisha-abhrajit",
+			"destination": "/wedding-portfolio"
+		},
+		{
+			"source": "/sikh-wedding",
+			"destination": "/"
+		},
+		{
+			"source": "/fusion-wedding",
+			"destination": "/"
+		},
+		{
+			"source": "/pre-cinematography",
+			"destination": "/"
+		},
+		{
+			"source": "/cinematic-prewedding-film",
+			"destination": "/films"
+		},
+		{
+			"source": "/bengali-wedding-photographers",
+			"destination": "/bengali-wedding-photography"
+		},
+		{
+			"source": "/new-born-baby",
+			"destination": "/baby-photoshoot"
+		},
+		{
+			"source": "/best-wedding-photographer",
+			"destination": "/"
+		},
+		{
+			"source": "/category/*",
+			"destination": "/photography-blog"
 		}
 	]
 }
