@@ -14,6 +14,11 @@ const PortfolioSection = ({ slice }) => {
 							<PortfolioItem key={index} data={item} />
 						))}
 					</div>
+					{slice?.items?.length < 7 && (
+						<Link href='/wedding-portfolio'>
+							<a className='btn shadow'>View More</a>
+						</Link>
+					)}
 				</div>
 			</div>
 		</section>
