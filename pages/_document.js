@@ -54,6 +54,10 @@ class MyDocument extends Document {
 					<link rel='mask-icon' href='/safari-pinned-tab.svg' color='#f5c463' />
 					<meta name='msapplication-TileColor' content='#ffc40d' />
 					<meta name='theme-color' content='#f5c463' />
+					<meta
+						name='facebook-domain-verification'
+						content='g2p1x2fcc1yclyfxb4dkgevifaa3jx'
+					/>
 
 					{/* SCRIPTS */}
 					<script
