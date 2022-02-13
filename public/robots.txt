@@ -1,2 +1,3 @@
+Sitemap: https://rigbiswas.com/sitemap.xml
 User-agent: *
 Disallow: /api/

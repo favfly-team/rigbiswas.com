@@ -40,7 +40,7 @@ const BlogItem = ({ data }) => {
 	/* ===== END ===== */
 	return (
 		<div className='item post grid-sizer col-md-6 col-lg-4 paper print'>
-			<figure className='overlay overlay1 mb-30 rounded'>
+			<figure className='overlay overlay1 mb-15 rounded'>
 				<Link href={`/blog/${data?.uid}`}>
 					<a>
 						<img

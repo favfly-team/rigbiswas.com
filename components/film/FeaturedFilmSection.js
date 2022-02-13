@@ -7,7 +7,7 @@ import { RichText } from 'prismic-reactjs';
 import { linkResolver } from '../../prismic-configuration';
 
 const FeaturedFilmSection = ({ slice }) => {
-	// console.log(slice);
+	// console.log(video_link);
 	const { image, heading, description, video_link, button_text, button_link } =
 		slice?.primary;
 
@@ -34,13 +34,15 @@ const FeaturedFilmSection = ({ slice }) => {
 								alt={image.alt}
 								className='img-fluid rounded w-100 lozad'
 							/>
-							<button
-								onClick={() => setToggler(!toggler)}
-								className=' play-btn position-absolute'>
-								<i className='text-white'>
-									<FaPlay />
-								</i>
-							</button>
+							{video_link?.url && (
+								<button
+									onClick={() => setToggler(!toggler)}
+									className=' play-btn position-absolute'>
+									<i className='text-white'>
+										<FaPlay />
+									</i>
+								</button>
+							)}
 						</div>
 
 						<div className='space30 d-none d-md-block d-lg-none'></div>
