@@ -5702,3 +5702,83 @@ pre {
 .post-content h2 {
 	margin-top: 30px;
 }
+
+
+
+.modal_box{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #000000bf;
+	z-index: 9999;
+}
+.modal_container{
+	background-color: #b0b19b;
+	border-radius: 10px;
+	min-width: 400px;
+	min-height: 350px;
+	margin: auto 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	cursor: pointer;
+	padding: 10px;
+}
+.modal_content{
+	position: relative;
+}
+.modal_close_icon{
+	position: absolute;
+	right: 0;
+}
+.moadl_body{
+	padding-top: 80px;
+	column-gap: 15px;
+}
+.modal_input{
+	border-radius: 8px !important;
+	background-color: #ebe4cb !important;
+}
+.input_btn{
+	border: none;
+	outline: none;
+	border-radius: 8px;
+	padding: 10px 15px;
+	width: 100%;
+	font-size: 14px;
+	background-color: #ae6d13;
+	color: white;
+	margin-top: 10px;
+}
+.input_btn:hover{
+	background-color: #533e22;
+	transition: .4s linear;
+}
+.checkbox_label{
+	margin-left: 5px;
+}
+.input_checkbox{
+	margin-top: 10px;
+}
+.input_checkbox input{
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: .1rem;
+}
+
+@media(max-width: 600px){
+	.modal_container{
+		min-width: 0;
+		min-height: 0;
+	}
+	.moadl_body{
+		flex-direction: column;
+	}
+	.per_input_box:first-child{
+		margin: 10px 0;
+	}
+}
