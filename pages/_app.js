@@ -25,9 +25,10 @@ function MyApp({ Component, pageProps }) {
 	useEffect(() => {
 		// console.log(router);
 		const queryParams = new URLSearchParams(window.location.search);
-		console.log(queryParams.get('utm_source'));
 		if (queryParams.get('utm_source') == 'google-ads') {
-			setIsModal(true);
+			setTimeout(() => {
+				setIsModal(true);
+			}, 8000);
 		}
 	}, [router]);
 	return (
