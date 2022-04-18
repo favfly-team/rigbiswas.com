@@ -9,7 +9,7 @@ import '../styles/style.css';
 import { DefaultSeo } from 'next-seo';
 import DefaultLayout from '../components/layouts/default';
 
-import Modal from '../components/modal/Modal'
+import Modal from '../components/modal/Modal';
 
 //Binding events.
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -20,25 +20,16 @@ function MyApp({ Component, pageProps }) {
 	const Layout = Component.Layout || DefaultLayout;
 	const router = useRouter();
 
-	const [isModal, setIsModal] = useState(false)
+	const [isModal, setIsModal] = useState(false);
 
 	useEffect(() => {
 		// console.log(router);
-		let paramString = router.pathname.split('?')[1];
-		// console.log(paramString);
-		if (paramString) {
-			let queryString = new URLSearchParams(paramString);
-
-			for (let pair of queryString.entries()) {
-				// https://rigbiswas.com/?utm_source=google-ads
-				// console.log("Key is: " + pair[0]);
-				// console.log("Value is: " + pair[1]);
-				if(pair[0] == 'utm_source' && pair[1] == 'google-ads'){
-					setIsModal(true)
-				}
-			}
+		const queryParams = new URLSearchParams(window.location.search);
+		console.log(queryParams.get('utm_source'));
+		if (queryParams.get('utm_source') == 'google-ads') {
+			setIsModal(true);
 		}
-	}, [router])
+	}, [router]);
 	return (
 		<>
 			<DefaultSeo
@@ -55,9 +46,7 @@ function MyApp({ Component, pageProps }) {
 					cardType: 'summary_large_image',
 				}}
 			/>
-			{
-				isModal && <Modal setIsModal={setIsModal}/>
-			}
+			{isModal && <Modal setIsModal={setIsModal} />}
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>
