@@ -5782,3 +5782,9 @@ pre {
 		margin: 10px 0;
 	}
 }
+
+
+/* ===== custom css ===== */
+.image-remove p {
+	margin-bottom: 0px;
+}
