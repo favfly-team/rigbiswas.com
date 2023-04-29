@@ -5,7 +5,7 @@ import lozad from "lozad";
 import Link from "next/link";
 import dayjs from "dayjs";
 dayjs().format();
-import countapi from "countapi-js";
+// import countapi from "countapi-js";
 import gql from "graphql-tag";
 import Client from "../utils/prismicClient";
 import SecondaryHeroSection from "../components/hero/SecondaryHeroSection";
@@ -67,12 +67,12 @@ const BlogItem = ({ data }) => {
   // console.log(data);
   const { title, featured_image, published_date, _meta } = data?.node;
   /* ===== COUNT & UPDATE NO. OF VIEWS ===== */
-  const [views, setViews] = useState(0);
-  useEffect(() => {
-    countapi.get("rigbiswas.com", _meta?.uid).then((result) => {
-      result?.value && setViews(result.value);
-    });
-  }, [_meta?.uid]);
+  // const [views, setViews] = useState(0);
+  // useEffect(() => {
+  //   countapi.get("rigbiswas.com", _meta?.uid).then((result) => {
+  //     result?.value && setViews(result.value);
+  //   });
+  // }, [_meta?.uid]);
   /* ===== END ===== */
   return (
     <div className="item post grid-sizer col-md-6 col-lg-4 paper print">
@@ -96,9 +96,9 @@ const BlogItem = ({ data }) => {
         <span className="date">
           {dayjs(published_date).format("DD MMM, YYYY")}
         </span>
-        <span className="views text-lowercase">
+        {/* <span className="views text-lowercase">
           <span>{views}</span> views
-        </span>
+        </span> */}
       </div>
     </div>
   );
