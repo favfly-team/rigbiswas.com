@@ -118,7 +118,7 @@ const AlbumSliderSection = ({ slice }) => {
           }
           100% {
             transform: translateX(
-              -250%
+              -150%
             ); /* Move to the left by the width of the container */
           }
         }
