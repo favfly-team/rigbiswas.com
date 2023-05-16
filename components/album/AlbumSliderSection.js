@@ -174,7 +174,7 @@ const ImageItem = ({ data }) => {
     });
     observer.observe();
     return () => {};
-  }, []);
+  }, [data?.image?.url]);
   // ========== END ==========
 
   return (
