@@ -59,13 +59,25 @@ const AlbumSliderSection = ({ slice }) => {
             <div className="image-container">
               <div className="image-content">
                 {slice?.items?.map((item, index) => (
-                  <ImageItem key={index} data={item} />
+                  <ImageItem
+                    key={index + "a"}
+                    data={item}
+                    index={index + "a"}
+                  />
                 ))}
                 {slice?.items?.map((item, index) => (
-                  <ImageItem key={index} data={item} />
+                  <ImageItem
+                    key={index + "b"}
+                    data={item}
+                    index={index + "b"}
+                  />
                 ))}
                 {slice?.items?.map((item, index) => (
-                  <ImageItem key={index} data={item} />
+                  <ImageItem
+                    key={index + "c"}
+                    data={item}
+                    index={index + "c"}
+                  />
                 ))}
               </div>
             </div>
@@ -166,7 +178,7 @@ const AlbumSliderSection = ({ slice }) => {
   );
 };
 
-const ImageItem = ({ data }) => {
+const ImageItem = ({ data, index }) => {
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
     const observer = lozad(".lozad", {
@@ -174,14 +186,14 @@ const ImageItem = ({ data }) => {
     });
     observer.observe();
     return () => {};
-  }, [data?.image?.url]);
+  }, [index]);
   // ========== END ==========
 
   return (
     <>
       <img
         className="image lozad"
-        key={data?.image?.url}
+        key={index}
         data-src={data?.image?.url}
         alt={data?.image?.alt}
       />
