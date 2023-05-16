@@ -15,10 +15,15 @@ const AboutPage = ({ doc }) => {
     return () => {};
   }, [doc?.uid]);
   // ========== END ==========
+
   return (
     <>
       <SEO doc={doc} url="https://rigbiswas.com/about-rig" />
-      <SliceZone sliceZone={doc.data.body} />
+      <SliceZone
+        sliceZone={doc.data.body.filter(
+          (item) => item.slice_type != "secondary_hero_section"
+        )}
+      />
     </>
   );
 };

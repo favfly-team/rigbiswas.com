@@ -1,14 +1,11 @@
 import { useEffect } from "react";
 import lozad from "lozad";
-import Prismic from "@prismicio/client";
 import { Client } from "../utils/prismicHelpers";
 import { SliceZone } from "../slices";
 import SEO from "../components/seo/SEO";
 
-import BlogsSection from "../components/blog/BlogsSection";
-
-const IndexPage = ({ doc, blogPosts, posts }) => {
-  // console.log(blogPosts);
+const AlbumsPage = ({ doc }) => {
+  // console.log(doc);
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
     const observer = lozad(".lozad", {
@@ -21,9 +18,8 @@ const IndexPage = ({ doc, blogPosts, posts }) => {
 
   return (
     <>
-      <SEO doc={doc} url="https://rigbiswas.com" />
+      <SEO doc={doc} url="https://rigbiswas.com/albums" />
       <SliceZone sliceZone={doc.data.body} />
-      <BlogsSection posts={blogPosts} />
     </>
   );
 };
@@ -31,12 +27,13 @@ const IndexPage = ({ doc, blogPosts, posts }) => {
 export async function getServerSideProps({ preview = null, previewData = {} }) {
   const { ref } = previewData;
   const client = Client();
-  const doc = (await client.getSingle("home_page", ref ? { ref } : null)) || {};
+  const doc =
+    (await client.getSingle("album_page", ref ? { ref } : null)) || {};
 
-  const blogPosts = await client.query(
-    Prismic.Predicates.at("document.type", "blog_post"),
-    { pageSize: 6, orderings: "[my.blog_post.published_date desc]" }
-  );
+  // const blogPosts = await client.query(
+  // 	Prismic.Predicates.at('document.type', 'blog_post'),
+  // 	{ pageSize: 6, orderings: '[my.blog_post.published_date desc]' }
+  // );
 
   if (doc.id == undefined) {
     return {
@@ -48,11 +45,11 @@ export async function getServerSideProps({ preview = null, previewData = {} }) {
   return {
     props: {
       doc,
-      blogPosts,
+      // blogPosts,
       preview,
     },
     // revalidate: 60,
   };
 }
 
-export default IndexPage;
+export default AlbumsPage;

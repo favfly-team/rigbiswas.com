@@ -2,9 +2,12 @@ import { HiArrowRight } from "react-icons/hi";
 import Link from "next/link";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
+import { useRouter } from "next/router";
 
 const ServicesSection = ({ slice }) => {
   // console.log(slice);
+  const router = useRouter();
+
   const { heading, description } = slice.primary;
   return (
     <div className="wrapper light-wrapper">
@@ -23,13 +26,19 @@ const ServicesSection = ({ slice }) => {
             ))}
           </div>
         </div>
+        {router.pathname == "/" ? (
+          <>
+            <div className="space50"></div>
 
-        <div className="space30"></div>
-        {/* <div className='text-center'>
-					<Link href='/photography-services'>
-						<a className='btn btn-white'>See All Services</a>
-					</Link>
-				</div> */}
+            <div className="text-center">
+              <Link href="/photography-services">
+                <a className="btn shadow">See All Services</a>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="space30"></div>
+        )}
       </div>
     </div>
   );
@@ -48,16 +57,14 @@ const ServiceItem = ({ data }) => {
                 style={{
                   backgroundImage: `url(${image?.url})`,
                 }}
-                data-image-src="style/images/art/fs1.jpg"
-              ></div>
+                data-image-src="style/images/art/fs1.jpg"></div>
             </div>
           )}
 
           <div className="container-fluid p-0">
             <div className="row">
               <div
-                className={image?.url ? "col-lg-6 offset-lg-6" : "col-lg-12"}
-              >
+                className={image?.url ? "col-lg-6 offset-lg-6" : "col-lg-12"}>
                 <div className="box service-item d-flex">
                   <div className="align-self-center">
                     <h3 className="mb-15 font-weight-normal">

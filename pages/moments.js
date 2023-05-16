@@ -4,7 +4,7 @@ import { Client } from "../utils/prismicHelpers";
 import { SliceZone } from "../slices";
 import SEO from "../components/seo/SEO";
 
-const FilmsPage = ({ doc }) => {
+const MomentsPage = ({ doc }) => {
   // console.log(doc);
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
@@ -15,9 +15,10 @@ const FilmsPage = ({ doc }) => {
     return () => {};
   }, [doc?.uid]);
   // ========== END ==========
+
   return (
     <>
-      <SEO doc={doc} url="https://rigbiswas.com/films" />
+      <SEO doc={doc} url="https://rigbiswas.com/moments" />
       <SliceZone sliceZone={doc.data.body} />
     </>
   );
@@ -27,12 +28,7 @@ export async function getServerSideProps({ preview = null, previewData = {} }) {
   const { ref } = previewData;
   const client = Client();
   const doc =
-    (await client.getSingle("films_page", ref ? { ref } : null)) || {};
-
-  // const blogPosts = await client.query(
-  // 	Prismic.Predicates.at('document.type', 'blog_post'),
-  // 	{ pageSize: 6, orderings: '[my.blog_post.published_date desc]' }
-  // );
+    (await client.getSingle("moments_page", ref ? { ref } : null)) || {};
 
   if (doc.id == undefined) {
     return {
@@ -44,11 +40,10 @@ export async function getServerSideProps({ preview = null, previewData = {} }) {
   return {
     props: {
       doc,
-      // blogPosts,
       preview,
     },
     // revalidate: 60,
   };
 }
 
-export default FilmsPage;
+export default MomentsPage;

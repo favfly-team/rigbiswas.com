@@ -1,22 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { Carousel } from "react-responsive-carousel";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
 import lozad from "lozad";
 import { useEffect } from "react";
 
-const AwardsSection = ({ slice }) => {
+const ReviewsGallerySection = ({ slice }) => {
   // console.log(slice);
-  const { heading, description } = slice.primary;
+  const { heading, description1 } = slice.primary;
   return (
     <section className="wrapper light-wrapper">
-      <div className="container inner">
-        <h2 className="section-title section-title-upper larger text-center">
-          {heading[0]?.text}
-        </h2>
-        <div className="lead text-center">
-          <RichText render={description} linkResolver={linkResolver} />
+      <div className="container-fluid inner pb-0">
+        <div className="mx-auto mb-40" style={{ maxWidth: "900px" }}>
+          <h2 className="section-title section-title-upper larger text-center">
+            {heading[0]?.text}
+          </h2>
+          <div className="lead text-center">
+            <RichText render={description1} linkResolver={linkResolver} />
+          </div>
         </div>
 
         {/* <Carousel
@@ -32,9 +34,9 @@ const AwardsSection = ({ slice }) => {
 					))}
 				</Carousel> */}
 
-        <div className="row justify-content-center">
+        <div className="row">
           {slice?.items.map((item, index) => (
-            <FeaturedReview key={index} data={item} />
+            <ReviewsGalleryItem key={index} data={item} />
           ))}
         </div>
       </div>
@@ -42,7 +44,7 @@ const AwardsSection = ({ slice }) => {
   );
 };
 
-const FeaturedReview = ({ data }) => {
+const ReviewsGalleryItem = ({ data }) => {
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
     const observer = lozad(".lozad", {
@@ -54,7 +56,7 @@ const FeaturedReview = ({ data }) => {
   // ========== END ==========
 
   return (
-    <div className="col-6 col-md-4 col-lg-3 text-center mb-20">
+    <div className="col-sm-6 col-md-4 col-lg-2 p-0 mb-0">
       <figure>
         <img
           className="lozad w-100"
@@ -66,4 +68,4 @@ const FeaturedReview = ({ data }) => {
   );
 };
 
-export default AwardsSection;
+export default ReviewsGallerySection;
