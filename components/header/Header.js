@@ -69,7 +69,10 @@ const Header = () => {
               <LinkItem
                 text="Films"
                 link="/films"
-                active={router.pathname == "/films"}
+                active={
+                  router.pathname == "/films" ||
+                  router.pathname == "/films/[slug]"
+                }
               />
               <LinkItem
                 text="Albums"
@@ -79,7 +82,10 @@ const Header = () => {
               <LinkItem
                 text="Services"
                 link="/photography-services"
-                active={router.pathname == "/photography-services"}
+                active={
+                  router.pathname == "/photography-services" ||
+                  router.pathname == "/[slug]"
+                }
               />
               <LinkItem
                 text="About Us"

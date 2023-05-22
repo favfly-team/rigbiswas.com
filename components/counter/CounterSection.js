@@ -42,7 +42,7 @@ const CounterItem = ({ data }) => {
                   <div style={{ height: 40 }}>
                     {isVisible ? (
                       <CountUp
-                        start={50}
+                        start={0}
                         end={parseInt(number[0]?.text, 10)}
                         duration={3}
                       />
@@ -58,7 +58,7 @@ const CounterItem = ({ data }) => {
       </div>
       <style jsx>{`
         .box {
-          width: 300px;
+          width: 280px;
         }
       `}</style>
     </>

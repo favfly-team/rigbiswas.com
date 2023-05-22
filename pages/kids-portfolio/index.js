@@ -4,11 +4,17 @@ import { NextSeo } from "next-seo";
 import lozad from "lozad";
 import Link from "next/link";
 import gql from "graphql-tag";
-import Client from "../../utils/prismicClient";
-import SecondaryHeroSection from "../../components/hero/SecondaryHeroSection";
+import pClient from "../../utils/prismicClient";
+import { Client } from "../../utils/prismicHelpers";
 import Filter from "../../components/filter/Filter";
+import {
+  AboutHeroSection,
+  FilmsSection,
+  MasonryGallerySection,
+} from "../../slices";
+import { BsGridFill, BsImages, BsPlayFill } from "react-icons/bs";
 
-const PortfolioPage = ({ doc }) => {
+const PortfolioPage = ({ doc, page }) => {
   // console.log(doc);
   const edges = doc?.data?.allPortfolio_pages?.edges;
   // ========== LOZAD INSTANTIATE ==========
@@ -32,7 +38,15 @@ const PortfolioPage = ({ doc }) => {
     "Family Shoot",
   ];
 
+  // console.log(
+  //   page.data.body.filter(
+  //     (item) => item.slice_type == "about_hero_section"
+  //   )?.[0]
+  // );
+
   const [active, setActive] = useState("All");
+
+  const [activeSection, setActiveSection] = useState("gallery");
 
   return (
     <>
@@ -41,60 +55,153 @@ const PortfolioPage = ({ doc }) => {
         description="Make your best moment more special through Best Kids Videography by Rig Photography, a highly professional kids Photography & Videography team."
         canonical="https://rigbiswas.com/kids-portfolio"
       />
-      <SecondaryHeroSection
-        slice={{
-          primary: {
-            heading: [
-              {
-                spans: [],
-                type: "heading1",
-                text: "Kids Photography Portfolio From Rig Photography",
-              },
-            ],
-            description: [
-              {
-                spans: [],
-                type: "paragraph",
-                text: "Make your best moment more special through Best Kids Videography by Rig Photography, a highly professional kids Photography & Videography team in Kolkata.",
-              },
-            ],
-            image: {
-              url: "https://images.prismic.io/rigbiswas/4cd6ac72-64b7-4d0f-b394-2e49ce073f2c_Diyara+%26+Daibika.jpg?auto=compress,format&w=1500",
-            },
-          },
-        }}
+      <AboutHeroSection
+        slice={
+          page.data.body.filter(
+            (item) => item.slice_type == "about_hero_section"
+          )?.[0]
+        }
       />
-      <section className="wrapper light-wrapper">
-        <div className="container inner">
-          <div className="tiles text-center">
-            {/* ===== Filter ===== */}
-            <Filter
-              filterData={filterData}
-              active={active}
-              setActive={setActive}
-            />
 
-            <div className="items row">
-              {edges?.map(
-                (item, index) =>
-                  (active == "All" ||
-                    !!item?.node?.category_list?.filter(
-                      (item) => item?.category == active
-                    ).length) && (
-                    <PortfolioItem
-                      key={index}
-                      data={item}
-                      uid={item?.node?._meta?.uid}
-                    />
-                  )
-              )}
+      {/* filter start */}
+      <div className="filter">
+        <div
+          className={`filterItem left ${
+            activeSection == "gallery" ? "active" : ""
+          }`}
+          onClick={() => setActiveSection("gallery")}>
+          <i>
+            <BsGridFill />
+          </i>
+          <span className="ml-6">Gallery</span>
+        </div>
+        <div
+          className={`filterItem  ${
+            activeSection == "portfolio" ? "active" : ""
+          }`}
+          onClick={() => setActiveSection("portfolio")}>
+          <i>
+            <BsImages />
+          </i>
+          <span className="ml-6">Portfolio</span>
+        </div>
+        <div
+          className={`filterItem right ${
+            activeSection == "videos" ? "active" : ""
+          }`}
+          onClick={() => setActiveSection("videos")}>
+          <i className="play-icon">
+            <BsPlayFill />
+          </i>
+          <span className="ml-3">Videos</span>
+        </div>
+      </div>
+
+      {/* gallery section  */}
+      {activeSection == "gallery" && (
+        <div className="mt-40">
+          <MasonryGallerySection
+            slice={
+              page.data.body.filter(
+                (item) => item.slice_type == "masonry_gallery_section"
+              )?.[0]
+            }
+          />
+        </div>
+      )}
+
+      {/* portfolio section  */}
+      {activeSection == "portfolio" && (
+        <section className="wrapper">
+          <div className="container inner">
+            <div className="tiles text-center">
+              {/* ===== Filter ===== */}
+              <Filter
+                filterData={filterData}
+                active={active}
+                setActive={setActive}
+              />
+
+              <div className="items row">
+                {edges?.map(
+                  (item, index) =>
+                    (active == "All" ||
+                      !!item?.node?.category_list?.filter(
+                        (item) => item?.category == active
+                      ).length) && (
+                      <PortfolioItem
+                        key={index}
+                        data={item}
+                        uid={item?.node?._meta?.uid}
+                      />
+                    )
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* videos section  */}
+      {activeSection == "videos" && (
+        <FilmsSection
+          bgNone={true}
+          slice={
+            page.data.body.filter(
+              (item) => item.slice_type == "films_section"
+            )?.[0]
+          }
+        />
+      )}
+
       <style jsx>{`
         .wrapper {
           min-height: 600px;
+        }
+        .filterItem {
+          padding: 10px 20px;
+          background: #e7e7e7;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          font-size: 20px;
+          margin-top: 60px;
+          margin-left: 1px;
+          margin-right: 1px;
+          color: #515151;
+          letter-spacing: 1px;
+          cursor: pointer;
+        }
+        .active {
+          background: #331c64;
+          color: #fff;
+        }
+        .play-icon {
+          font-size: 24px;
+        }
+        .left {
+          border-top-left-radius: 10px;
+          border-bottom-left-radius: 10px;
+        }
+        .right {
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+        }
+        .filterItem i {
+          position: relative;
+          top: -1px;
+        }
+        .filter {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        @media (max-width: 591px) {
+          .filterItem {
+            padding: 6px 10px;
+            font-size: 14px;
+          }
         }
       `}</style>
     </>
@@ -137,10 +244,16 @@ const PortfolioItem = ({ data, uid }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const client = Client;
+export async function getServerSideProps({ preview = null, previewData = {} }) {
+  const { ref } = previewData;
 
-  const doc = await client.query({
+  const client = Client();
+
+  const page =
+    (await client.getSingle("kids_page", ref ? { ref } : null)) || {};
+
+  const prismicClient = pClient;
+  const doc = await prismicClient.query({
     query: gql`
       query {
         allPortfolio_pages(
@@ -177,6 +290,7 @@ export async function getServerSideProps() {
   return {
     props: {
       doc,
+      page,
     },
     // revalidate: 60,
   };

@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import { FaPlay } from "react-icons/fa";
 import lozad from "lozad";
+import Filter from "../filter/Filter";
 
-const FilmsSection = ({ slice }) => {
+const FilmsSection = ({ slice, bgNone }) => {
   // console.log(slice);
 
   // =========== FOR FSLIGHTBOX =========
@@ -34,19 +35,43 @@ const FilmsSection = ({ slice }) => {
   }, [slice]);
   // =========== END FSLIGHTBOX =========
 
+  const [active, setActive] = useState("All");
+
+  const filterData = [
+    "All",
+    "Maternity",
+    "Baby Shower",
+    "Newborn",
+    "Baby Theme Shoot & Portfolio",
+    "Rice Ceremony",
+    "Birthday Party",
+    "Family Shoot",
+  ];
+
   return (
-    <section className="wrapper light-wrapper">
+    <section className={`wrapper ${bgNone ? "" : "light-wrapper"}`}>
       <div className="container-fluid inner">
+        {slice?.primary?.show_filter && (
+          <Filter
+            filterData={filterData}
+            active={active}
+            setActive={setActive}
+          />
+        )}
+
         <div className="tiles text-center">
           <div className="items row">
-            {slice?.items?.map((item, index) => (
-              <PortfolioItem
-                key={index}
-                data={item}
-                index={index}
-                openLightboxOnSlide={openLightboxOnSlide}
-              />
-            ))}
+            {slice?.items?.map(
+              (item, index) =>
+                (active == "All" || item?.category == active) && (
+                  <PortfolioItem
+                    key={index}
+                    data={item}
+                    index={index}
+                    openLightboxOnSlide={openLightboxOnSlide}
+                  />
+                )
+            )}
           </div>
         </div>
       </div>

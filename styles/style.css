@@ -41,14 +41,14 @@ iframe {
   clear: both;
 }
 ::-moz-selection {
-  background: #fefac7;
+  background: #391e6b;
   /* Safari */
-  color: #404040;
+  color: #fff;
 }
 ::selection {
-  background: #fefac7;
+  background: #391e6b;
   /* Safari */
-  color: #404040;
+  color: #fff;
 }
 br {
   line-height: 0;
@@ -250,7 +250,8 @@ h2.post-title {
   line-height: 34px;
 }
 .heading,
-.heading.text-uppercase {
+.heading.text-uppercase,
+.heading h1 {
   font-size: 40px;
   line-height: 52px;
   margin-bottom: 20px;

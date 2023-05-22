@@ -72,7 +72,7 @@ const PortfolioItem = ({ data, uid }) => {
           position: absolute;
           top: 0;
           right: 0;
-          width: 50%;
+          width: 30%;
           height: 100%;
           display: flex;
           align-items: center;

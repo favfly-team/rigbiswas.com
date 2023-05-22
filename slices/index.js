@@ -10,7 +10,7 @@ export { default as CounterSection } from "../components/counter/CounterSection"
 export { default as SecondaryHeroSection } from "../components/hero/SecondaryHeroSection";
 export { default as ContactSection } from "../components/contact/ContactSection";
 export { default as ReviewsSection } from "../components/review/ReviewsSection";
-export { default as FilmsSection } from "../components/film/FimsSection";
+export { default as FilmsSection } from "../components/film/FilmsSection";
 export { default as GallerySection } from "../components/gallery/GallerySection";
 export { default as DetailsSection } from "../components/about/DetailsSection";
 export { default as PortfolioDetailsSection } from "../components/portfolio/PortfolioDetailsSection";
@@ -22,5 +22,6 @@ export { default as GradientHeadingSection } from "../components/heading/Gradien
 export { default as ReviewsGallerySection } from "../components/review/ReviewsGallerySection";
 export { default as RatingSection } from "../components/review/RatingSection";
 export { default as VideoFilmsSection } from "../components/gallery/VideoFilmsSection";
+export { default as VideoHeroSection } from "../components/hero/VideoHeroSection";
 
 export { default as SliceZone } from "./SliceZone";

@@ -4,24 +4,70 @@
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
 import lozad from "lozad";
-import { useEffect } from "react";
+import FsLightbox from "fslightbox-react";
+import { useState, useEffect } from "react";
 
 const ReviewsGallerySection = ({ slice }) => {
   // console.log(slice);
   const { heading, description1 } = slice.primary;
-  return (
-    <section className="wrapper light-wrapper">
-      <div className="container-fluid inner pb-0">
-        <div className="mx-auto mb-40" style={{ maxWidth: "900px" }}>
-          <h2 className="section-title section-title-upper larger text-center">
-            {heading[0]?.text}
-          </h2>
-          <div className="lead text-center">
-            <RichText render={description1} linkResolver={linkResolver} />
-          </div>
-        </div>
 
-        {/* <Carousel
+  const [sources, setSources] = useState([]);
+
+  // const [active, setActive] = useState("All");
+
+  // const [filterArr, setFilterArr] = useState(galleryItems);
+
+  // ===== SLIDE STATE =====
+  const [lightboxController, setLightboxController] = useState({
+    toggler: false,
+    slide: 1,
+  });
+
+  // ===== HANDLE SLIDE NUMBER =====
+  const openLightboxOnSlide = (number) => {
+    setLightboxController({
+      toggler: !lightboxController.toggler,
+      slide: number,
+    });
+  };
+
+  // ===== GET STRUCTURED SOURCES =====
+  useEffect(() => {
+    const observer = lozad(".lozad", {
+      rootMargin: "100px 0px", // syntax similar to that of CSS Margin
+    });
+    observer.observe();
+
+    let tempSources = [];
+    slice?.items.map((item) => {
+      item.video_link?.link_type == "Web"
+        ? tempSources.push(item?.video_link?.url)
+        : tempSources.push(item?.image?.url);
+    });
+
+    setSources(tempSources);
+    return () => {
+      setSources([]);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slice]);
+
+  return (
+    <>
+      <section className="wrapper light-wrapper">
+        <div className="container-fluid">
+          {heading[0]?.text && (
+            <div className="mx-auto mb-40" style={{ maxWidth: "900px" }}>
+              <h2 className="section-title section-title-upper larger text-center">
+                {heading[0]?.text}
+              </h2>
+              <div className="lead text-center">
+                <RichText render={description1} linkResolver={linkResolver} />
+              </div>
+            </div>
+          )}
+
+          {/* <Carousel
 					emulateTouch
 					autoPlay
 					interval={3500}
@@ -34,17 +80,28 @@ const ReviewsGallerySection = ({ slice }) => {
 					))}
 				</Carousel> */}
 
-        <div className="row">
-          {slice?.items.map((item, index) => (
-            <ReviewsGalleryItem key={index} data={item} />
-          ))}
+          <div className="row">
+            {slice?.items.map((item, index) => (
+              <ReviewsGalleryItem
+                key={index}
+                data={item}
+                index={index}
+                openLightboxOnSlide={openLightboxOnSlide}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <FsLightbox
+        toggler={lightboxController.toggler}
+        sources={sources}
+        slide={lightboxController.slide}
+      />
+    </>
   );
 };
 
-const ReviewsGalleryItem = ({ data }) => {
+const ReviewsGalleryItem = ({ data, openLightboxOnSlide, index }) => {
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
     const observer = lozad(".lozad", {
@@ -60,10 +117,17 @@ const ReviewsGalleryItem = ({ data }) => {
       <figure>
         <img
           className="lozad w-100"
+          key={index}
           data-src={data?.image?.url}
           alt={data?.image?.alt}
+          onClick={() => openLightboxOnSlide(index + 1)}
         />
       </figure>
+      <style jsx>{`
+        figure {
+          cursor: zoom-in;
+        }
+      `}</style>
     </div>
   );
 };

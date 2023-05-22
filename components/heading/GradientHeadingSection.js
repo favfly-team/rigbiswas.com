@@ -48,7 +48,14 @@ const GradientHeadingSection = ({ slice }) => {
           background: none;
         }
         .btn-secondary span span {
+          border-bottom: 2px solid #ffffff00;
+        }
+        .btn-secondary:hover span span {
           border-bottom: 2px solid #0072ff;
+        }
+        .btn-secondary i {
+          position: relative;
+          top: -3px;
         }
         .image-wrapper:before {
           background: none;

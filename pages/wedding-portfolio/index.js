@@ -23,7 +23,7 @@ const PortfolioPage = ({ doc }) => {
 
   const filterData = [
     "All",
-    "Marwari Weddig",
+    "Marwari Wedding",
     "Bengali Wedding",
     "Destination Wedding",
     "Destination Prewedding",

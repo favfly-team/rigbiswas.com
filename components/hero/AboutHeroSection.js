@@ -7,37 +7,44 @@ const AboutHeroSection = ({ slice }) => {
   return (
     <>
       <section>
-        <div
+        {/* <div
           className="bg"
           style={{
             backgroundImage: `url(${image?.url})`,
-          }}></div>
+          }}></div> */}
+        <img className="image" src={image?.url} alt={image?.alt} />
 
-        <div className="wrapper">
-          <div className="container inner pt-40 pb-40">
-            <div className="row">
-              <div className="col-md-10 mx-auto px-2 text-center">
-                <div className="heading">
-                  <h1>{heading[0]?.text}</h1>
-                </div>
-                <div className="space10"></div>
-                <div className="sub-heading2">
-                  <RichText render={description} linkResolver={linkResolver} />
+        {heading[0]?.text && (
+          <div className="wrapper">
+            <div className="container inner pt-40 pb-40">
+              <div className="row">
+                <div className="col-md-10 mx-auto px-2 text-center">
+                  <div className="heading">
+                    <h1>{heading[0]?.text}</h1>
+                  </div>
+                  <div className="space10"></div>
+                  <div className="sub-heading2">
+                    <RichText
+                      render={description}
+                      linkResolver={linkResolver}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </section>
 
       <style jsx>{`
-        .bg {
-          background-size: cover;
-          background-position: center;
-          background-repeat: no-repeat;
-          height: 50vh;
+        .image {
+          //background-size: contain;
+          //background-repeat: no-repeat;
+          //background-position: center;
+          //height: 50vh;
+          //height: 28vw;
           width: 100%;
-          margin-top: 60px;
+          margin-top: 70px;
         }
         .heading {
           margin-bottom: 10px;

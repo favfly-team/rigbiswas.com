@@ -6,7 +6,8 @@ import lozad from "lozad";
 import { useEffect, useState } from "react";
 
 const AlbumSliderSection = ({ slice }) => {
-  const { button_link, button_text, heading, subheading } = slice?.primary;
+  const { button_link, button_text, heading, subheading, image } =
+    slice?.primary;
 
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
@@ -57,29 +58,7 @@ const AlbumSliderSection = ({ slice }) => {
         <DocLink link={button_link}>
           <a>
             <div className="image-container">
-              <div className="image-content">
-                {slice?.items?.map((item, index) => (
-                  <ImageItem
-                    key={index + "a"}
-                    data={item}
-                    index={index + "a"}
-                  />
-                ))}
-                {slice?.items?.map((item, index) => (
-                  <ImageItem
-                    key={index + "b"}
-                    data={item}
-                    index={index + "b"}
-                  />
-                ))}
-                {slice?.items?.map((item, index) => (
-                  <ImageItem
-                    key={index + "c"}
-                    data={item}
-                    index={index + "c"}
-                  />
-                ))}
-              </div>
+              <div className="sliding-background"></div>
             </div>
           </a>
         </DocLink>
@@ -87,40 +66,15 @@ const AlbumSliderSection = ({ slice }) => {
 
       <style jsx>{`
         .image-container {
-          width: 100%;
+          max-width: 100vw;
           overflow: hidden;
         }
-
-        .image-content {
-          display: flex; /* Use flexbox to align items horizontally */
-          animation: scroll 60s linear infinite; /* Use the scroll animation with a duration of 10 seconds and linear timing */
-        }
-
-        @media (max-width: 1500px) {
-          .image-content {
-            animation: scroll 45s linear infinite; /* Use the scroll animation with a duration of 10 seconds and linear timing */
-          }
-        }
-        @media (max-width: 768px) {
-          .image-content {
-            animation: scroll 40s linear infinite; /* Use the scroll animation with a duration of 10 seconds and linear timing */
-          }
-        }
-        @media (max-width: 591px) {
-          .image-content {
-            animation: scroll 20s linear infinite; /* Use the scroll animation with a duration of 10 seconds and linear timing */
-          }
-        }
-
-        @keyframes scroll {
-          0% {
-            transform: translateX(0); /* Start at 0 */
-          }
-          100% {
-            transform: translateX(
-              -150%
-            ); /* Move to the left by the width of the container */
-          }
+        .sliding-background {
+          min-height: 35vh;
+          width: 20304px;
+          animation: slide 120s linear infinite;
+          background: url(${image?.url}) repeat-x;
+          background-size: contain;
         }
 
         .btn-secondary {
@@ -133,7 +87,14 @@ const AlbumSliderSection = ({ slice }) => {
           background: none;
         }
         .btn-secondary span span {
+          border-bottom: 2px solid #ffffff00;
+        }
+        .btn-secondary:hover span span {
           border-bottom: 2px solid #0072ff;
+        }
+        .btn-secondary i {
+          position: relative;
+          top: -3px;
         }
         .image-wrapper:before {
           background: none;
@@ -171,52 +132,6 @@ const AlbumSliderSection = ({ slice }) => {
           .sub-heading h4 {
             font-size: 24px;
             line-height: 28px;
-          }
-        }
-      `}</style>
-    </>
-  );
-};
-
-const ImageItem = ({ data, index }) => {
-  // ========== LOZAD INSTANTIATE ==========
-  useEffect(() => {
-    const observer = lozad(".lozad", {
-      rootMargin: "100px 0px", // syntax similar to that of CSS Margin
-    });
-    observer.observe();
-    return () => {};
-  }, [index]);
-  // ========== END ==========
-
-  return (
-    <>
-      <img
-        className="image lozad"
-        key={index}
-        data-src={data?.image?.url}
-        alt={data?.image?.alt}
-      />
-
-      <style jsx>{`
-        .image {
-          width: 600px;
-          margin: 0 2px;
-        }
-
-        @media (max-width: 991px) {
-          .image {
-            width: 400px;
-          }
-        }
-        @media (max-width: 768px) {
-          .image {
-            width: 400px;
-          }
-        }
-        @media (max-width: 591px) {
-          .image {
-            width: 350px;
           }
         }
       `}</style>

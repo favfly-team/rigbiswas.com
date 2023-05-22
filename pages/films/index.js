@@ -5,7 +5,6 @@ import gql from "graphql-tag";
 import pClient from "../../utils/prismicClient";
 import { SliceZone } from "../../slices";
 import SEO from "../../components/seo/SEO";
-import SecondaryHeroSection from "../../components/hero/SecondaryHeroSection";
 import FilmsPlaylistSection from "../../components/film/FilmsPlaylistSection";
 
 const FilmsPage = ({ doc, filmsList }) => {
@@ -25,31 +24,11 @@ const FilmsPage = ({ doc, filmsList }) => {
   return (
     <>
       <SEO doc={doc} url="https://rigbiswas.com/films" />
-
-      <SecondaryHeroSection
-        slice={{
-          primary: {
-            heading: [
-              {
-                spans: [],
-                type: "heading1",
-                text: "Best Wedding Films From Rig Photography",
-              },
-            ],
-            description: [
-              {
-                spans: [],
-                type: "paragraph",
-                text: "Make your best moment more special through Best Wedding Videography by Rig Photography. We have expertise with a highly professional wedding Photography & Videography team in Kolkata.",
-              },
-            ],
-            image: {
-              url: "https://images.prismic.io/rigbiswas/13d10113-d8e6-4d20-9503-312b1cfbbd65_sikh+wedding+4-min.jpg?auto=compress,format&w=1500",
-            },
-          },
-        }}
+      <SliceZone
+        sliceZone={doc.data.body.filter(
+          (item) => item.slice_type == "video_hero_section"
+        )}
       />
-
       <FilmsPlaylistSection edges={edges} />
     </>
   );

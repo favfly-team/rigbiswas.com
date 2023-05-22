@@ -70,7 +70,7 @@ const ContactInfoSection = ({ slice }) => {
           }
           @media (max-width: 991px) {
             .box {
-              padding: 30px 0;
+              padding: 30px 15px !important;
             }
           }
         `}</style>

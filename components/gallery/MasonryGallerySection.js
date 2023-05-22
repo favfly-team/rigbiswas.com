@@ -1,12 +1,28 @@
 /* eslint-disable @next/next/no-img-element */
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import FsLightbox from "fslightbox-react";
 import { useState, useEffect } from "react";
-import lozad from "lozad";
 import { useRouter } from "next/router";
 
 const MasonryGallerySection = ({ slice }) => {
   const galleryItems = [...slice.items].reverse();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const Masonry = require("masonry-layout");
+    const imagesLoaded = require("imagesloaded");
+
+    const grid = document.querySelector(".grid");
+    const masonry = new Masonry(grid, {
+      itemSelector: ".grid-item",
+      percentPosition: true,
+    });
+
+    imagesLoaded(grid).on("progress", function () {
+      // layout Masonry after each image loads
+      masonry.layout();
+    });
+  });
 
   const [sources, setSources] = useState([]);
 
@@ -30,11 +46,6 @@ const MasonryGallerySection = ({ slice }) => {
 
   // ===== GET STRUCTURED SOURCES =====
   useEffect(() => {
-    const observer = lozad(".lozad", {
-      rootMargin: "100px 0px", // syntax similar to that of CSS Margin
-    });
-    observer.observe();
-
     let tempSources = [];
     galleryItems.map((item) => {
       item.video_link?.link_type == "Web"
@@ -49,23 +60,19 @@ const MasonryGallerySection = ({ slice }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slice]);
 
-  const router = useRouter();
-
   return (
     <>
       <div className={router.pathname == "/moments" ? "bg-black" : ""}>
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
-          <Masonry>
-            {galleryItems?.map((item, index) => (
-              <ImageItem
-                key={item?.image?.url}
-                data={item}
-                index={index}
-                openLightboxOnSlide={openLightboxOnSlide}
-              />
-            ))}
-          </Masonry>
-        </ResponsiveMasonry>
+        <div className="grid">
+          {galleryItems?.map((item, index) => (
+            <ImageItem
+              key={index}
+              data={item}
+              index={index}
+              openLightboxOnSlide={openLightboxOnSlide}
+            />
+          ))}
+        </div>
       </div>
       <FsLightbox
         toggler={lightboxController.toggler}
@@ -82,29 +89,18 @@ const MasonryGallerySection = ({ slice }) => {
 };
 
 const ImageItem = ({ data, openLightboxOnSlide, index }) => {
-  // ===== GET STRUCTURED SOURCES =====
-  useEffect(() => {
-    const observer = lozad(".lozad", {
-      rootMargin: "100px 0px", // syntax similar to that of CSS Margin
-    });
-    observer.observe();
-  }, []);
-
   const { image } = data;
 
   return (
     <>
-      <img
-        key={image?.url}
-        data-src={image?.url}
-        className="lozad"
-        alt={image?.alt}
-        onClick={() => openLightboxOnSlide(index + 1)}
-      />
+      <div
+        className="grid-item"
+        key={index}
+        onClick={() => openLightboxOnSlide(index + 1)}>
+        <img src={image?.url} alt={image?.alt} />
+      </div>
       <style jsx>{`
         img {
-          margin: 1px;
-          //border-radius: 5px;
           cursor: zoom-in;
         }
       `}</style>

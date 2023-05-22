@@ -269,3 +269,66 @@ body {
     background-position: 100% 50%;
   }
 }
+.hero .heading {
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  text-align: center;
+}
+
+.hero .heading h1 {
+  color: #fff;
+  font-family: "SfProDisplayRegular";
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero .heading h1 strong {
+  font-family: "SfProDisplayMedium";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 52px;
+}
+
+@media (min-width: 1500px) {
+  .hero .heading h1 {
+    color: #fff;
+    font-family: "SfProDisplayRegular";
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero .heading h1 strong {
+    font-family: "SfProDisplayMedium";
+    font-weight: 400;
+    font-size: 58px;
+    line-height: 1.4;
+  }
+}
+
+.grid-item {
+  width: calc(100% / 3);
+}
+.grid-item img {
+  width: 100%;
+  padding: 1px;
+}
+
+@media (max-width: 768px) {
+  .grid-item {
+    width: calc(100% / 2);
+  }
+}
+
+@media (max-width: 591px) {
+  .grid-item {
+    width: calc(100% / 1);
+  }
+}

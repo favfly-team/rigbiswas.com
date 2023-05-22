@@ -1,5 +1,6 @@
 import {
   HeroSection,
+  VideoHeroSection,
   PortfolioSection,
   CtaSection,
   AboutSection,
@@ -81,6 +82,8 @@ const SliceZone = ({ sliceZone }) => (
           return <RatingSection slice={slice} key={`slice-${index}`} />;
         case "video_films_section":
           return <VideoFilmsSection slice={slice} key={`slice-${index}`} />;
+        case "video_hero_section":
+          return <VideoHeroSection slice={slice} key={`slice-${index}`} />;
 
         default:
           return null;

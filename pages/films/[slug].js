@@ -4,7 +4,7 @@ import { Client } from "../../utils/prismicHelpers";
 // import { queryRepeatableDocuments } from "../../utils/queries";
 import { SliceZone } from "../../slices";
 import SEO from "../../components/seo/SEO";
-import SecondaryHeroSection from "../../components/hero/SecondaryHeroSection";
+import VideoHeroSection from "../../components/hero/VideoHeroSection";
 
 // import CtaFormSection from '../../components/cta/CtaFormSection';
 // import PortfolioSection from '../../components/portfolio/PortfolioSection';
@@ -20,33 +20,20 @@ const FilmPage = ({ doc }) => {
     return () => {};
   }, [doc?.uid]);
   // ========== END ==========
+  const data = {
+    title: "Best Wedding Films From Rig Photography",
+    description:
+      "Make your best moment more special through Best Wedding Videography by Rig Photography. We have expertise with a highly professional wedding Photography & Videography team in Kolkata.",
+    video:
+      "https://res.cloudinary.com/dhzllfqqt/video/upload/v1684439815/Home_Page_Mashup_Videod_xqgwtx.mp4",
+  };
+
   return (
     <>
       <SEO doc={doc} url={`https://rigbiswas.com/films/${doc?.uid}`} />
 
-      <SecondaryHeroSection
-        slice={{
-          primary: {
-            heading: [
-              {
-                spans: [],
-                type: "heading1",
-                text: "Best Wedding Films From Rig Photography",
-              },
-            ],
-            description: [
-              {
-                spans: [],
-                type: "paragraph",
-                text: "Make your best moment more special through Best Wedding Videography by Rig Photography. We have expertise with a highly professional wedding Photography & Videography team in Kolkata.",
-              },
-            ],
-            image: {
-              url: "https://images.prismic.io/rigbiswas/13d10113-d8e6-4d20-9503-312b1cfbbd65_sikh+wedding+4-min.jpg?auto=compress,format&w=1500",
-            },
-          },
-        }}
-      />
+      <VideoHeroSection data={data} />
+
       <SliceZone sliceZone={doc.data.body} />
     </>
   );
