@@ -8,7 +8,7 @@ import SEO from "../../components/seo/SEO";
 // import CtaFormSection from '../../components/cta/CtaFormSection';
 // import PortfolioSection from '../../components/portfolio/PortfolioSection';
 
-const PorfolioSinglePage = ({ doc }) => {
+const PortfolioSinglePage = ({ doc }) => {
   // console.log(doc);
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
@@ -80,4 +80,4 @@ export async function getServerSideProps({
   };
 }
 
-export default PorfolioSinglePage;
+export default PortfolioSinglePage;

@@ -107,6 +107,7 @@ const PortfolioDetailsSection = ({ slice }) => {
 
 const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
   const { image, video_link } = data;
+
   return (
     <div
       onClick={() => openLightboxOnSlide(index + 1)}
@@ -119,7 +120,7 @@ const GalleryItem = ({ data, index, openLightboxOnSlide }) => {
             </i>
           </button>
         )}
-        <img data-src={image?.url} alt={image?.alt} className="lozad" />
+        <img src={image?.url} alt={image?.alt} />
       </figure>
 
       <style jsx>{`
