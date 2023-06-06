@@ -44,6 +44,13 @@ const SecondaryHeroSection = ({ slice }) => {
           align-items: center;
           justify-content: center;
         }
+
+        @media (max-width: 591px) {
+          .wrapper {
+            height: 60vh;
+          }
+        }
+
         .backgroundImage:before {
           content: "";
           position: absolute;
