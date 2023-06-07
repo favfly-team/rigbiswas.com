@@ -58,6 +58,7 @@ const FeaturedReview = ({ data }) => {
       <figure>
         <img
           className="lozad w-100"
+          key={data?.image?.url}
           data-src={data?.image?.url}
           alt={data?.image?.alt}
         />

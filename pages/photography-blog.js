@@ -80,6 +80,7 @@ const BlogItem = ({ data }) => {
         <Link href={`/blog/${_meta?.uid}`}>
           <a>
             <img
+              key={featured_image?.thumb?.url}
               data-src={featured_image?.thumb?.url}
               alt={featured_image?.alt}
               className="lozad"

@@ -100,6 +100,7 @@ const ContentBox = ({ data }) => {
     return (
       <figure className={`figure position-relative overflow-hidden rounded`}>
         <img
+          key={data?.url}
           data-src={`${data?.url}?&w=750`}
           className="img-fluid w-100 lozad"
           alt={data?.alt}

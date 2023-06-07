@@ -29,6 +29,7 @@ const CounterItem = ({ data }) => {
         <div className="d-flex flex-row justify-content-center">
           <div className="icon fs-58 icon-color color-lavender mr-25">
             <img
+              key={icon?.url}
               data-src={icon?.url}
               alt={icon?.alt}
               height="60"

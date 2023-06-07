@@ -103,7 +103,12 @@ const PortfolioItem = ({ data, index, openLightboxOnSlide }) => {
       <figure
         className="overlay overlay1 rounded pointer"
         onClick={() => openLightboxOnSlide(index + 1)}>
-        <img data-src={image.url} alt={image.alt} className="lozad" />
+        <img
+          key={image.url}
+          data-src={image.url}
+          alt={image.alt}
+          className="lozad"
+        />
         <button className="play-btn position-absolute">
           <i className="text-white">
             <FaPlay />

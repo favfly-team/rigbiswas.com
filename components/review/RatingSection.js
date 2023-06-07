@@ -26,7 +26,12 @@ const RatingItem = ({ data }) => {
       <div className="cbp-item d-block rounded overflow-hidden m-0 shadow">
         <div className="bg-white shadow box">
           <div className="logo">
-            <img data-src={image.url} alt={image.alt} className="lozad" />
+            <img
+              key={image.url}
+              data-src={image.url}
+              alt={image.alt}
+              className="lozad"
+            />
           </div>
           <div className="rating">
             {[...Array(parseInt(rating?.[0]?.text))].map((_, index) => (

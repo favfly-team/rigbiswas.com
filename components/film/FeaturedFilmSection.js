@@ -39,6 +39,7 @@ const FeaturedFilmSection = ({ slice }) => {
           <div className="row d-flex align-items-center">
             <div className="col-lg-7 pr-35 pr-sm-15 position-relative">
               <img
+                key={image.url}
                 data-src={image.url}
                 alt={image.alt}
                 className="img-fluid rounded w-100 lozad"

@@ -225,7 +225,12 @@ const PortfolioItem = ({ data, uid }) => {
       <figure className="overlay overlay1 rounded mb-20">
         <Link href={`/kids-portfolio/${uid}`}>
           <a>
-            <img data-src={image.url} alt={image.alt} className="lozad" />
+            <img
+              key={image.url}
+              data-src={image.url}
+              alt={image.alt}
+              className="lozad"
+            />
           </a>
         </Link>
       </figure>

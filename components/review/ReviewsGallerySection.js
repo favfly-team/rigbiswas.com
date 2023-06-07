@@ -117,7 +117,7 @@ const ReviewsGalleryItem = ({ data, openLightboxOnSlide, index }) => {
       <figure>
         <img
           className="lozad w-100"
-          key={index}
+          key={data?.image?.url}
           data-src={data?.image?.url}
           alt={data?.image?.alt}
           onClick={() => openLightboxOnSlide(index + 1)}

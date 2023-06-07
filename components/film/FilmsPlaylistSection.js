@@ -44,6 +44,7 @@ const PortfolioItem = ({ data, uid }) => {
         <Link href={link}>
           <a className="position-relative">
             <img
+              key={thumbnail.url}
               data-src={thumbnail.url}
               alt={thumbnail.alt}
               className="lozad"

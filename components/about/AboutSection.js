@@ -19,6 +19,7 @@ const AboutSection = ({ slice }) => {
             <div className="col-lg-4">
               <figure>
                 <img
+                  key={image.url}
                   data-src={image.url}
                   alt={image.alt}
                   className="lozad rounded"
