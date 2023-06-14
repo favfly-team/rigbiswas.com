@@ -31,6 +31,7 @@
 		"react": "17.0.2",
 		"react-countup": "^6.1.0",
 		"react-cta-buttons": "^2.0.0",
+		"react-datepicker": "^4.12.0",
 		"react-dom": "17.0.2",
 		"react-icons": "^4.3.1",
 		"react-responsive-carousel": "^3.2.22",

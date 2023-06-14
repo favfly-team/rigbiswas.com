@@ -21,6 +21,18 @@ const HeroSection = ({ slice }) => {
           margin-top: 58px;
           min-height: 60vh;
         }
+        .heading {
+          top: 53%;
+        }
+
+        @media (max-width: 768px) {
+          .wrapper {
+            min-height: 40vh;
+          }
+          .heading {
+            top: 58%;
+          }
+        }
 
         .sliding-background {
           width: 20304px;

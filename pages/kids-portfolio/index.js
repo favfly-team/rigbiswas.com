@@ -99,7 +99,7 @@ const PortfolioPage = ({ doc, page }) => {
 
       {/* gallery section  */}
       {activeSection == "gallery" && (
-        <div className="mt-40">
+        <div className="mt-50">
           <MasonryGallerySection
             slice={
               page.data.body.filter(
@@ -165,7 +165,7 @@ const PortfolioPage = ({ doc, page }) => {
           display: flex;
           align-items: center;
           font-size: 20px;
-          margin-top: 60px;
+          margin-top: 50px;
           margin-left: 1px;
           margin-right: 1px;
           color: #515151;

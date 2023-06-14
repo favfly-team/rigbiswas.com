@@ -92,6 +92,12 @@ const VideoHeroSection = ({ slice, data }) => {
             font-size: 20px;
             line-height: 1.4;
           }
+          .video-section {
+            height: 60vh;
+          }
+          video {
+            height: 100%;
+          }
         }
       `}</style>
     </>

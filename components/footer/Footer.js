@@ -103,7 +103,7 @@ const Footer = () => {
         .dark-wrapper {
           background: radial-gradient(
             circle,
-            rgb(46 23 88) 0%,
+            rgb(32 10 71) 0%,
             rgb(22 9 52) 100%
           );
         }
@@ -121,4 +121,10 @@ export default Footer;
 //   circle,
 //   rgba(57, 30, 107, 1) 0%,
 //   rgba(30, 14, 66, 1) 100%
+// );
+
+// background: radial-gradient(
+//   circle,
+//   rgb(46 23 88) 0%,
+//   rgb(22 9 52) 100%
 // );

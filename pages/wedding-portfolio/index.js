@@ -4,13 +4,15 @@ import { NextSeo } from "next-seo";
 import lozad from "lozad";
 import Link from "next/link";
 import gql from "graphql-tag";
-import Client from "../../utils/prismicClient";
+import pClient from "../../utils/prismicClient";
+import { Client } from "../../utils/prismicHelpers";
 import SecondaryHeroSection from "../../components/hero/SecondaryHeroSection";
 import Filter from "../../components/filter/Filter";
 
-const PortfolioPage = ({ doc }) => {
+const PortfolioPage = ({ doc, page }) => {
   // console.log(doc);
   const edges = doc?.data?.allPortfolio_pages?.edges;
+
   // ========== LOZAD INSTANTIATE ==========
   useEffect(() => {
     const observer = lozad(".lozad", {
@@ -51,27 +53,11 @@ const PortfolioPage = ({ doc }) => {
         canonical="https://rigbiswas.com/wedding-portfolio"
       />
       <SecondaryHeroSection
-        slice={{
-          primary: {
-            heading: [
-              {
-                spans: [],
-                type: "heading1",
-                text: "Wedding Photography Portfolio From Rig Photography",
-              },
-            ],
-            description: [
-              {
-                spans: [],
-                type: "paragraph",
-                text: "Make your best moment more special through Best Wedding Videography by Rig Photography, a highly professional wedding Photography & Videography team in Kolkata.",
-              },
-            ],
-            image: {
-              url: "https://images.prismic.io/rigbiswas/13d10113-d8e6-4d20-9503-312b1cfbbd65_sikh+wedding+4-min.jpg?auto=compress,format&w=1500",
-            },
-          },
-        }}
+        slice={
+          page.data.body.filter(
+            (item) => item.slice_type == "secondary_hero_section"
+          )?.[0]
+        }
       />
       <section className="wrapper light-wrapper">
         <div className="container inner">
@@ -152,10 +138,17 @@ const PortfolioItem = ({ data, uid }) => {
   );
 };
 
-export async function getServerSideProps() {
-  const client = Client;
+export async function getServerSideProps({ preview = null, previewData = {} }) {
+  const { ref } = previewData;
 
-  const doc = await client.query({
+  const client = Client();
+
+  const page =
+    (await client.getSingle("wedding_page", ref ? { ref } : null)) || {};
+
+  const prismicClient = pClient;
+
+  const doc = await prismicClient.query({
     query: gql`
       query {
         allPortfolio_pages(
@@ -192,6 +185,7 @@ export async function getServerSideProps() {
   return {
     props: {
       doc,
+      page,
     },
     // revalidate: 60,
   };

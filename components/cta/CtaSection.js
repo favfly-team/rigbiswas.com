@@ -75,6 +75,13 @@ const CtaSection = ({ slice }) => {
           position: relative;
           top: -3px;
         }
+
+        @media (max-width: 591px) {
+          .btn-secondary {
+            font-size: 24px;
+          }
+        }
+
         .image-wrapper:before {
           background: none;
         }

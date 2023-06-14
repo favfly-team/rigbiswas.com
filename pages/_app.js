@@ -11,15 +11,29 @@ import { DefaultSeo } from "next-seo";
 import DefaultLayout from "../components/layouts/default";
 
 import Modal from "../components/modal/Modal";
-
-//Binding events.
-Router.events.on("routeChangeStart", () => NProgress.start());
-Router.events.on("routeChangeComplete", () => NProgress.done());
-Router.events.on("routeChangeError", () => NProgress.done());
+import QueryModalForm from "../components/modal/QueryModalForm";
 
 function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || DefaultLayout;
   const router = useRouter();
+
+  const [showModal, setShowModal] = useState(false);
+
+  let timeoutId;
+
+  useEffect(() => {
+    timeoutId = setTimeout(() => {
+      setShowModal(true);
+    }, 1000 * 30);
+  }, [router]);
+
+  //Binding events.
+  Router.events.on("routeChangeStart", () => {
+    NProgress.start();
+    clearTimeout(timeoutId);
+  });
+  Router.events.on("routeChangeComplete", () => NProgress.done());
+  Router.events.on("routeChangeError", () => NProgress.done());
 
   const [isModal, setIsModal] = useState(false);
 
@@ -51,6 +65,7 @@ function MyApp({ Component, pageProps }) {
       {isModal && <Modal setIsModal={setIsModal} />}
       <Layout>
         <Component {...pageProps} />
+        <QueryModalForm showModal={showModal} setShowModal={setShowModal} />
       </Layout>
     </>
   );

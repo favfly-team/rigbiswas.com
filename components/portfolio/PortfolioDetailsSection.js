@@ -2,13 +2,15 @@
 import { useEffect, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import YouTube from "react-youtube";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaBuilding, FaMapMarkerAlt } from "react-icons/fa";
+import { BsGridFill } from "react-icons/bs";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
 
 const PortfolioDetailsSection = ({ slice }) => {
   // console.log(slice);
-  const { image, heading, details, video_id } = slice.primary;
+  const { image, heading, details, video_id, hall, type, location } =
+    slice.primary;
   const opts = {
     playerVars: {
       autoplay: 0,
@@ -51,7 +53,7 @@ const PortfolioDetailsSection = ({ slice }) => {
 
   return (
     <section className="wrapper light-wrapper">
-      <div className="inner">
+      <div className="inner" style={{ paddingTop: "65px" }}>
         <div className="container-fluid p-0">
           {video_id?.[0]?.text ? (
             <div className="video-wrapper bg-pastel-yellow">
@@ -66,14 +68,41 @@ const PortfolioDetailsSection = ({ slice }) => {
           )}
         </div>
         <div className="container">
-          <div className="gray-wrapper mt-60 px-5 py-4">
+          <div className="gray-wrapper mt-40 px-2 py-4 portfolio-heading">
             <h1 className="text-center">{heading[0]?.text}</h1>
             <div>
               <RichText render={details} linkResolver={linkResolver} />
             </div>
+
+            <div className="list">
+              {hall?.[0]?.text && (
+                <div className="list-item">
+                  <i style={{ color: "#9D2235" }}>
+                    <FaBuilding />
+                  </i>
+                  <span>{hall?.[0]?.text}</span>
+                </div>
+              )}
+              {location?.[0]?.text && (
+                <div className="list-item">
+                  <i style={{ color: "#EA4335" }}>
+                    <FaMapMarkerAlt />
+                  </i>
+                  <span>{location?.[0]?.text}</span>
+                </div>
+              )}
+              {type?.[0]?.text && (
+                <div className="list-item">
+                  <i style={{ color: "#202eb5" }}>
+                    <BsGridFill />
+                  </i>
+                  <span>{type?.[0]?.text}</span>
+                </div>
+              )}
+            </div>
           </div>
 
-          <div className="mt-60">
+          <div className="mt-40">
             <div className="row">
               {slice?.items?.map((item, index) => (
                 <GalleryItem
@@ -90,9 +119,53 @@ const PortfolioDetailsSection = ({ slice }) => {
       <style jsx>{`
         .img-fluid {
           width: 100%;
-          height: 70vh;
-          object-fit: cover;
-          object-position: center;
+        }
+        .portfolio-heading h1 {
+          font-family: "Berkshire Swash", cursive;
+          font-size: 48px;
+          background: linear-gradient(
+            90deg,
+            rgba(99, 41, 125, 1) 0%,
+            rgba(32, 46, 181, 1) 100%
+          );
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          line-height: 1.4;
+        }
+
+        .list {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          max-width: 800px;
+          margin: auto;
+          font-family: "SfProDisplayBold";
+          margin-top: 40px;
+          font-size: 18px;
+          text-transform: uppercase;
+          color: #606060;
+        }
+        .list .list-item {
+          margin: 0 30px;
+        }
+        .list .list-item i {
+          position: relative;
+          top: -2px;
+          margin-right: 5px;
+        }
+        @media (max-width: 768px) {
+          .portfolio-heading h1 {
+            font-size: 32px;
+          }
+        }
+        @media (max-width: 591px) {
+          .list {
+            font-size: 16px;
+          }
+          .list .list-item {
+            margin: 0 15px;
+          }
         }
       `}</style>
 

@@ -130,8 +130,22 @@ const AlbumSliderSection = ({ slice }) => {
           }
 
           .sub-heading h4 {
-            font-size: 24px;
+            font-size: 18px;
             line-height: 28px;
+          }
+        }
+
+        @media (max-width: 591px) {
+          .heading h2 {
+            font-size: 32px;
+            line-height: 42px;
+          }
+          .sub-heading h4 {
+            font-size: 18px;
+            line-height: 28px;
+          }
+          .btn-secondary {
+            font-size: 22px;
           }
         }
       `}</style>
