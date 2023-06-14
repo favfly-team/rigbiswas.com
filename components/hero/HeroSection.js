@@ -16,21 +16,15 @@ const HeroSection = ({ slice }) => {
         .hero {
           max-width: 100vw;
           overflow: hidden;
+          margin-top: 58px;
         }
         .wrapper {
-          margin-top: 58px;
           min-height: 60vh;
-        }
-        .heading {
-          top: 53%;
         }
 
         @media (max-width: 768px) {
           .wrapper {
             min-height: 40vh;
-          }
-          .heading {
-            top: 58%;
           }
         }
 
