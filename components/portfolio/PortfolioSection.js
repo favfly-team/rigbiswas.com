@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Heading from "../heading/Heading";
+import lozad from "lozad";
+import { useEffect } from "react";
 
 const PortfolioSection = ({ slice }) => {
   // console.log(slice);
@@ -27,6 +29,17 @@ const PortfolioSection = ({ slice }) => {
 
 const PortfolioItem = ({ data }) => {
   const { image, location, title, type, link } = data;
+
+  // ========== LOZAD INSTANTIATE ==========
+  useEffect(() => {
+    const observer = lozad(".lozad", {
+      rootMargin: "100px 0px", // syntax similar to that of CSS Margin
+    });
+    observer.observe();
+    return () => {};
+  }, [data?.image]);
+  // ========== END ==========
+
   return (
     <div className="item col-md-6 col-lg-4">
       <figure className="overlay overlay1 rounded mb-20">
