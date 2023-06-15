@@ -100,13 +100,13 @@ const PortfolioItem = ({ data, uid }) => {
   const { image, location, heading, type } = data?.node?.body?.[0]?.primary;
 
   // ========== LOZAD INSTANTIATE ==========
-  useEffect(() => {
-    const observer = lozad(".lozad", {
-      rootMargin: "100px 0px", // syntax similar to that of CSS Margin
-    });
-    observer.observe();
-    return () => {};
-  }, []);
+  // useEffect(() => {
+  //   const observer = lozad(".lozad", {
+  //     rootMargin: "100px 0px", // syntax similar to that of CSS Margin
+  //   });
+  //   observer.observe();
+  //   return () => {};
+  // }, []);
   // ========== END ==========
 
   return (
@@ -116,9 +116,10 @@ const PortfolioItem = ({ data, uid }) => {
           <a>
             <img
               key={image.url}
-              data-src={image.url}
+              src={image.url}
+              // data-src={image.url}
               alt={image.alt}
-              className="lozad"
+              // className="lozad"
             />
           </a>
         </Link>
