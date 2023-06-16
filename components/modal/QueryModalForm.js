@@ -11,14 +11,10 @@ const base = new Airtable({
 
 const QueryModalForm = ({ showModal, setShowModal }) => {
   const imgs = [
-    "https://images.prismic.io/rigbiswas/dd660702-0505-4b2e-87b8-5278cd5db861_66+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
     "https://images.prismic.io/rigbiswas/361b8807-c91b-4320-94a2-63a925964ba4_A7404360-1+copy.jpg?auto=compress,format&rect=0,0,3072,2047&w=800&h=533",
     "https://images.prismic.io/rigbiswas/c669764e-276d-4890-a516-d60aa711a141_78+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3017,2048&w=800&h=543",
-    "https://images.prismic.io/rigbiswas/c2046e01-417b-4008-ac87-c3612774f528_81+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
     "https://images.prismic.io/rigbiswas/65c54bec-7a40-49b2-a643-ad5e243ecb0a_71+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
     "https://images.prismic.io/rigbiswas/febebdba-eb6f-497f-a4b0-8f6311a61e30_64+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
-    "https://images.prismic.io/rigbiswas/dd660702-0505-4b2e-87b8-5278cd5db861_66+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
-    "https://images.prismic.io/rigbiswas/361b8807-c91b-4320-94a2-63a925964ba4_A7404360-1+copy.jpg?auto=compress,format&rect=0,0,3072,2047&w=800&h=533",
   ];
 
   const [formData, setFormData] = useState({
