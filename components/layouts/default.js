@@ -12,7 +12,10 @@ const DefaultLayout = ({ children }) => {
       <div className="main">{children}</div>
       {/* <LinksCollection /> */}
       <Footer />
-      <WhatsappButton number="+919830693939" text="Hi, Rig Photography" />
+      <WhatsappButton
+        number="+919830693939"
+        text="Hi, Rig Photography. I got your no from website."
+      />
       {/* <PhoneButton number='+917872644844' /> */}
     </main>
   );
