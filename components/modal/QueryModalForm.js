@@ -22,11 +22,13 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
   ];
 
   const [formData, setFormData] = useState({
-    name: "",
+    eventDate: "",
+    location: "",
     phone: "",
-    event: "",
-    date: "",
+    name: "",
+    email: "",
   });
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -71,10 +73,12 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
       const data = await base("Popup Queries").create([
         {
           fields: {
+            "Event Date": formData.eventDate,
+            Location: formData.location,
+            "Whatsapp No": formData.phone,
             Name: formData.name,
-            Phone: phone,
-            "Event Type": formData.event,
-            "Event Date": formData.date,
+            Email: formData.email,
+
             Status: "Todo",
             Source: location.href,
           },
@@ -84,10 +88,11 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
       // console.log(data);
 
       setFormData({
-        name: "",
+        eventDate: "",
+        location: "",
         phone: "",
-        event: "",
-        date: "",
+        name: "",
+        email: "",
       });
       setSuccess(true);
       setLoading(false);
@@ -141,6 +146,48 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
               <form onSubmit={handleSubmit} className="vanilla vanilla-form">
                 <div className="row text-center">
                   <div className="col-md-6 pr-5">
+                    <div className="form-group custom-date-picker">
+                      <DatePicker
+                        selected={formData.eventDate}
+                        required
+                        onChange={(date) => {
+                          setFormData({
+                            ...formData,
+                            eventDate: date,
+                          });
+                        }}
+                        placeholderText="Event Date*"
+                        className="w-100"
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6 pl-5">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="location"
+                        className="w-100"
+                        value={formData.location}
+                        onChange={handleChange}
+                        placeholder="Your Location*"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6 pr-5">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="phone"
+                        className="w-100"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Your Whatsapp no.*"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-6 pl-5">
                     <div className="form-group">
                       <input
                         type="text"
@@ -148,69 +195,28 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                         className="w-100"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="Your name"
+                        placeholder="Your Name*"
                         required
                       />
                     </div>
                   </div>
-                  <div className="col-md-6 pl-5">
+                  <div className="col-md-12 pr-5">
                     <div className="form-group">
                       <input
-                        type="tel"
-                        name="phone"
+                        type="text"
+                        name="email"
                         className="w-100"
-                        value={formData.phone}
+                        value={formData.email}
                         onChange={handleChange}
-                        placeholder="Your whatsapp number"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className="col-md-6 pr-5">
-                    <div className="form-group">
-                      <select
-                        name="event"
-                        id="event"
-                        value={formData.event}
-                        onChange={handleChange}
-                        required>
-                        <option value="Select-event-type">
-                          Select event type
-                        </option>
-                        <option value="Pre-wedding-photography">
-                          Pre wedding photography
-                        </option>
-                        <option value="Wedding-photography">
-                          Wedding photography
-                        </option>
-                        <option value="Rice-or-Baby-photography">
-                          Rice / Baby photography
-                        </option>
-                        <option value="Corporate-photography">
-                          Corporate photography
-                        </option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="col-md-6 pl-5">
-                    <div className="form-group custom-date-picker">
-                      <DatePicker
-                        selected={formData.date}
-                        onChange={(date) => {
-                          setFormData({
-                            ...formData,
-                            date: date,
-                          });
-                        }}
-                        placeholderText="Event Date"
-                        className="w-100"
+                        placeholder="Your Email"
                       />
                     </div>
                   </div>
                   <div className="col-12">
                     <button type="submit" className="btn mb-5">
-                      {loading ? "Please Wait..." : "Claim Your Free Quote"}
+                      {loading
+                        ? "Please Wait..."
+                        : "Get Package Details on Whatsapp"}
                     </button>
                   </div>
                 </div>

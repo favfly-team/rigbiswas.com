@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     timeoutId = setTimeout(() => {
       setShowModal(true);
-    }, 1000 * 30);
+    }, 1000 * 15);
   }, [router]);
 
   //Binding events.
