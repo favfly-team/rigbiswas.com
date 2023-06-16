@@ -11,10 +11,12 @@ const base = new Airtable({
 
 const QueryModalForm = ({ showModal, setShowModal }) => {
   const imgs = [
-    "https://images.prismic.io/rigbiswas/361b8807-c91b-4320-94a2-63a925964ba4_A7404360-1+copy.jpg?auto=compress,format&rect=0,0,3072,2047&w=800&h=533",
-    "https://images.prismic.io/rigbiswas/c669764e-276d-4890-a516-d60aa711a141_78+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3017,2048&w=800&h=543",
-    "https://images.prismic.io/rigbiswas/65c54bec-7a40-49b2-a643-ad5e243ecb0a_71+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
-    "https://images.prismic.io/rigbiswas/febebdba-eb6f-497f-a4b0-8f6311a61e30_64+-++Moment+Rig+Photo.jpg?auto=compress,format&rect=0,0,3078,2047&w=800&h=532",
+    "https://images.prismic.io/rigbiswas/dfc23e09-3d66-4441-8358-30fd54cbd5d3_img+5.jpg",
+    "https://images.prismic.io/rigbiswas/76f8d0d7-6227-4b44-a118-13c57b469a94_img+2.jpg",
+    "https://images.prismic.io/rigbiswas/7985442c-6ced-4dfd-8977-98bd513c57ec_img+6.jpg",
+    "https://images.prismic.io/rigbiswas/963e065d-9ca8-49e0-8228-c1e156fd9492_img+3.jpg",
+    "https://images.prismic.io/rigbiswas/07e823ab-050c-4fd9-85e6-50399d91522d_img+4.jpg",
+    "https://images.prismic.io/rigbiswas/b1525ad9-e547-4f09-8e31-68f7d2792c5c_img+1.jpg",
   ];
 
   const [formData, setFormData] = useState({
@@ -119,7 +121,11 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
             }}>
             {imgs.map((img, index) => (
               <SplideSlide key={index}>
-                <img className="w-100" src={img} alt="wedding planner" />
+                <img
+                  className="w-100"
+                  src={`${img}?auto=compress,format&rect=0,0,3078,2047&w=800&h=532`}
+                  alt="wedding planner"
+                />
               </SplideSlide>
             ))}
           </Splide>
