@@ -75,7 +75,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
             "Event Date": formData.eventDate,
             "Event Type": formData.eventType,
             Location: formData.location,
-            "Whatsapp No": formData.phone,
+            "WhatsApp No": formData.phone,
             Name: formData.name,
             Email: formData.email,
 
@@ -203,7 +203,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                         className="w-100"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Your Whatsapp no.*"
+                        placeholder="Your WhatsApp no.*"
                         required
                       />
                     </div>
