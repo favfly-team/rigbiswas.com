@@ -203,7 +203,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                         className="w-100"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="Your WhatsApp no.*"
+                        placeholder="Your WhatsApp No.*"
                         required
                       />
                     </div>
