@@ -177,7 +177,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                         <option>Select Event Type*</option>
                         <option>Wedding</option>
                         <option>Pre wedding</option>
-                        <option>Baby Shoot</option>
+                        <option>Baby & Maternity</option>
                         <option>Other</option>
                       </select>
                     </div>
