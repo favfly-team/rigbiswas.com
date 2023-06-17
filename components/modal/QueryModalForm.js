@@ -21,6 +21,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
 
   const [formData, setFormData] = useState({
     eventDate: "",
+    eventType: "",
     location: "",
     phone: "",
     name: "",
@@ -72,6 +73,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
         {
           fields: {
             "Event Date": formData.eventDate,
+            "Event Type": formData.eventType,
             Location: formData.location,
             "Whatsapp No": formData.phone,
             Name: formData.name,
@@ -87,6 +89,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
 
       setFormData({
         eventDate: "",
+        eventType: "",
         location: "",
         phone: "",
         name: "",
@@ -164,6 +167,22 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                     </div>
                   </div>
                   <div className="col-md-6 pl-5">
+                    <div className="form-group custom-date-picker">
+                      <select
+                        name="eventType"
+                        className="w-100"
+                        value={formData.eventType}
+                        onChange={handleChange}
+                        required>
+                        <option>Select Event Type*</option>
+                        <option>Wedding</option>
+                        <option>Pre wedding</option>
+                        <option>Baby Shoot</option>
+                        <option>Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="col-md-6 pr-5">
                     <div className="form-group">
                       <input
                         type="text"
@@ -176,7 +195,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                       />
                     </div>
                   </div>
-                  <div className="col-md-6 pr-5">
+                  <div className="col-md-6 pl-5">
                     <div className="form-group">
                       <input
                         type="text"
@@ -189,7 +208,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                       />
                     </div>
                   </div>
-                  <div className="col-md-6 pl-5">
+                  <div className="col-md-6 pr-5">
                     <div className="form-group">
                       <input
                         type="text"
@@ -202,7 +221,7 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
                       />
                     </div>
                   </div>
-                  <div className="col-md-12 pr-5">
+                  <div className="col-md-6 pl-5">
                     <div className="form-group">
                       <input
                         type="text"

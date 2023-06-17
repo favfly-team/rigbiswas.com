@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || DefaultLayout;
   const router = useRouter();
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(true);
 
   let timeoutId;
 
