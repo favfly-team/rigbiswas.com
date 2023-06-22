@@ -9,7 +9,7 @@ const base = new Airtable({
   apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
 }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID);
 
-const QueryModalForm = ({ showModal, setShowModal }) => {
+const QueryModalForm = ({ showModal, setShowModal, setTimer }) => {
   const imgs = [
     "https://images.prismic.io/rigbiswas/dfc23e09-3d66-4441-8358-30fd54cbd5d3_img+5.jpg",
     "https://images.prismic.io/rigbiswas/76f8d0d7-6227-4b44-a118-13c57b469a94_img+2.jpg",
@@ -134,7 +134,10 @@ const QueryModalForm = ({ showModal, setShowModal }) => {
           </Splide>
 
           <button
-            onClick={() => setShowModal(false)}
+            onClick={() => {
+              setShowModal(false);
+              setTimer();
+            }}
             type="button"
             className="close text-white"
             data-dismiss="modal"

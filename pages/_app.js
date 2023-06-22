@@ -21,10 +21,30 @@ function MyApp({ Component, pageProps }) {
 
   let timeoutId;
 
+  const setTimer = () => {
+    // Calculate expiration time
+    const expirationTime = new Date().getTime() + 30 * 60 * 1000;
+
+    // Store expiration time in LocalStorage
+    localStorage.setItem("timerExpiration", expirationTime);
+  };
+
+  // Check if the timer has expired
+  const isTimerExpired = () => {
+    // Retrieve the expiration time from LocalStorage
+    const expirationTime = localStorage.getItem("timerExpiration");
+
+    // Compare the current timestamp with the expiration time
+    const currentTime = new Date().getTime();
+    return currentTime > expirationTime;
+  };
+
   useEffect(() => {
-    timeoutId = setTimeout(() => {
-      setShowModal(true);
-    }, 1000 * 15);
+    if (isTimerExpired()) {
+      timeoutId = setTimeout(() => {
+        setShowModal(true);
+      }, 1000 * 15);
+    }
   }, [router]);
 
   //Binding events.
@@ -65,7 +85,11 @@ function MyApp({ Component, pageProps }) {
       {isModal && <Modal setIsModal={setIsModal} />}
       <Layout>
         <Component {...pageProps} />
-        <QueryModalForm showModal={showModal} setShowModal={setShowModal} />
+        <QueryModalForm
+          showModal={showModal}
+          setShowModal={setShowModal}
+          setTimer={setTimer}
+        />
       </Layout>
     </>
   );
