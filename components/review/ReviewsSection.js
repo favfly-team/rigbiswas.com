@@ -39,7 +39,7 @@ const ReviewItem = ({ data }) => {
           <div className="mt-20 p-4">
             <blockquote className="icon icon-left">
               <RichText render={review} linkResolver={linkResolver} />
-              <footer className="blockquote-footer">{name[0]?.text}</footer>
+              <footer className="blockquote-footer">{name?.[0]?.text}</footer>
             </blockquote>
           </div>
         </div>

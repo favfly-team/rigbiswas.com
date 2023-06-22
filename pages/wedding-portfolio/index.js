@@ -124,10 +124,10 @@ const PortfolioItem = ({ data, uid }) => {
           </a>
         </Link>
       </figure>
-      <h4 className="mb-0">{heading[0]?.text}</h4>
+      <h4 className="mb-0">{heading?.[0]?.text}</h4>
       <div className="meta">
-        <span className="count">{location[0]?.text}</span>
-        <span className="category">{type[0]?.text}</span>
+        <span className="count">{location?.[0]?.text}</span>
+        <span className="category">{type?.[0]?.text}</span>
       </div>
       <style jsx>{`
         .rounded {

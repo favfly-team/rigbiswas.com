@@ -34,7 +34,7 @@ const BlogPostSection = ({ data, uid }) => {
                   <div className="space40"></div>
                   <div className="post-content text-left">
                     <h1 className="post-title">
-                      <strong>{title[0]?.text}</strong>
+                      <strong>{title?.[0]?.text}</strong>
                     </h1>
                     <RichText
                       render={description}

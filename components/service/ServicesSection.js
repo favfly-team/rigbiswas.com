@@ -13,7 +13,7 @@ const ServicesSection = ({ slice }) => {
     <div className="wrapper light-wrapper">
       <div className="container inner">
         <h2 className="section-title section-title-upper larger text-center">
-          {heading[0]?.text}
+          {heading?.[0]?.text}
         </h2>
         <div className="lead larger text-center">
           <RichText render={description} linkResolver={linkResolver} />
@@ -72,14 +72,14 @@ const ServiceItem = ({ data }) => {
                         <Link href={`/${link?.uid}`}>
                           <a className="text-reset">
                             <strong className="font-weight-normal">
-                              {title[0]?.text}
+                              {title?.[0]?.text}
                             </strong>
                           </a>
                         </Link>
                       ) : (
                         <a className="text-reset">
                           <strong className="font-weight-normal">
-                            {title[0]?.text}
+                            {title?.[0]?.text}
                           </strong>
                         </a>
                       )}

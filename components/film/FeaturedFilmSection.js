@@ -58,16 +58,16 @@ const FeaturedFilmSection = ({ slice }) => {
             <div className="space30 d-none d-md-block d-lg-none"></div>
             <div className="col-lg-5">
               <h2 className="section-title section-title-upper larger">
-                {heading[0]?.text}
+                {heading?.[0]?.text}
               </h2>
               <div className="description">
                 <RichText render={description} linkResolver={linkResolver} />
               </div>
               <div className="space10"></div>
-              <Link href={button_link[0]?.text}>
+              <Link href={button_link?.[0]?.text}>
                 <a className="play-btn-primary">
                   <span className="d-flex align-items-center">
-                    {button_text[0]?.text}
+                    {button_text?.[0]?.text}
                     <i>
                       <FaPlay />
                     </i>

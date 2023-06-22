@@ -60,7 +60,7 @@ const PortfolioItem = ({ data, uid }) => {
       </figure>
       <Link href={link}>
         <a>
-          <h4 className="mb-0">{portfolio_name[0]?.text}</h4>
+          <h4 className="mb-0">{portfolio_name?.[0]?.text}</h4>
         </a>
       </Link>
       <style jsx>{`

@@ -15,7 +15,7 @@ const SecondaryHeroSection = ({ slice }) => {
             <div className="row">
               <div className="col-md-10 mx-auto px-2 text-center">
                 <div className="heading">
-                  <h1>{heading[0]?.text}</h1>
+                  <h1>{heading?.[0]?.text}</h1>
                 </div>
                 <div className="space10"></div>
                 <div className="sub-heading2">

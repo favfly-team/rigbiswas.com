@@ -22,13 +22,13 @@ const BlogPostPage = ({ doc, blogPosts }) => {
   return (
     <>
       <NextSeo
-        title={doc?.data?.title[0]?.text}
-        description={doc?.data?.description[0]?.text}
+        title={doc?.data?.title?.[0]?.text}
+        description={doc?.data?.description?.[0]?.text}
         canonical={`https://rigbiswas.com/blog/${doc?.uid}`}
         openGraph={{
           url: `https://rigbiswas.com/${doc?.uid}`,
-          title: doc?.data?.title[0]?.text,
-          description: doc?.data?.description[0]?.text,
+          title: doc?.data?.title?.[0]?.text,
+          description: doc?.data?.description?.[0]?.text,
           type: "article",
           article: {
             publishedTime: doc?.first_publication_date,

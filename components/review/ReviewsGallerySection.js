@@ -56,10 +56,10 @@ const ReviewsGallerySection = ({ slice }) => {
     <>
       <section className="wrapper light-wrapper">
         <div className="container-fluid">
-          {heading[0]?.text && (
+          {heading?.[0]?.text && (
             <div className="mx-auto mb-40" style={{ maxWidth: "900px" }}>
               <h2 className="section-title section-title-upper larger text-center">
-                {heading[0]?.text}
+                {heading?.[0]?.text}
               </h2>
               <div className="lead text-center">
                 <RichText render={description1} linkResolver={linkResolver} />

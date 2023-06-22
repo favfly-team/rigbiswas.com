@@ -69,7 +69,7 @@ const PortfolioDetailsSection = ({ slice }) => {
         </div>
         <div className="container">
           <div className="gray-wrapper mt-40 px-2 py-4 portfolio-heading">
-            <h1 className="text-center">{heading[0]?.text}</h1>
+            <h1 className="text-center">{heading?.[0]?.text}</h1>
             <div>
               <RichText render={details} linkResolver={linkResolver} />
             </div>
