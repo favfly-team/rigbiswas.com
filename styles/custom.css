@@ -122,19 +122,19 @@ a:focus {
 
 .cta-bg .sub-heading h4 {
   color: #343434 !important;
-  font-size: 38px;
+  font-size: 30px;
   line-height: 46px;
   font-weight: 600;
 }
 .cta-bg .heading h2 {
-  font-size: 78px;
+  font-size: 70px;
   line-height: 88px;
   font-weight: 700;
 }
 
 .cta-bg .description p {
   color: #606060 !important;
-  font-size: 26px;
+  font-size: 22px;
   line-height: 32px;
   font-weight: 500;
   font-family: "SfProDisplayMedium";
@@ -143,16 +143,16 @@ a:focus {
 
 @media (max-width: 991px) {
   .cta-bg .heading h2 {
-    font-size: 74px;
+    font-size: 66px;
     line-height: 82px;
   }
 
   .cta-bg .sub-heading h4 {
-    font-size: 28px;
+    font-size: 20px;
     line-height: 36px;
   }
   .cta-bg .description p {
-    font-size: 22px;
+    font-size: 18px;
     line-height: 26px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -161,7 +161,7 @@ a:focus {
 
 @media (max-width: 991px) {
   .cta-bg .description p {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
