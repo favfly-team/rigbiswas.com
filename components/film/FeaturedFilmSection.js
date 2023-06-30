@@ -63,17 +63,21 @@ const FeaturedFilmSection = ({ slice }) => {
               <div className="description">
                 <RichText render={description} linkResolver={linkResolver} />
               </div>
-              <div className="space10"></div>
-              <Link href={button_link?.[0]?.text}>
-                <a className="play-btn-primary">
-                  <span className="d-flex align-items-center">
-                    {button_text?.[0]?.text}
-                    <i>
-                      <FaPlay />
-                    </i>
-                  </span>
-                </a>
-              </Link>
+              {button_link?.[0]?.text && (
+                <>
+                  <div className="space10"></div>
+                  <Link href={button_link?.[0]?.text}>
+                    <a className="play-btn-primary">
+                      <span className="d-flex align-items-center">
+                        {button_text?.[0]?.text}
+                        <i>
+                          <FaPlay />
+                        </i>
+                      </span>
+                    </a>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>
