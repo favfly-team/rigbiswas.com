@@ -111,7 +111,7 @@ export async function getServerSideProps() {
   const doc = await client.query({
     query: gql`
       query {
-        allBlog_posts(sortBy: published_date_DESC) {
+        allBlog_posts(sortBy: published_date_DESC, first: 100) {
           edges {
             node {
               title

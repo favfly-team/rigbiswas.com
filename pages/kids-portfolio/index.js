@@ -265,6 +265,7 @@ export async function getServerSideProps({ preview = null, previewData = {} }) {
         allPortfolio_pages(
           sortBy: published_date_DESC
           where: { type: "Kids" }
+          first: 100
         ) {
           edges {
             node {

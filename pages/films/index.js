@@ -55,7 +55,7 @@ export async function getServerSideProps({ preview = null, previewData = {} }) {
   const filmsList = await pClient.query({
     query: gql`
       query {
-        allFilm_pages(sortBy: published_date_DESC, first: 99) {
+        allFilm_pages(sortBy: published_date_DESC, first: 100) {
           edges {
             node {
               portfolio_name
