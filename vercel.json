@@ -1,80 +1,164 @@
 {
-	"redirects": [
-		{
-			"source": "/bengali-wedding",
-			"destination": "/bengali-wedding-photography"
-		},
-		{
-			"source": "/blog",
-			"destination": "/photography-blog"
-		},
-		{
-			"source": "/packages",
-			"destination": "/photography-services"
-		},
-		{
-			"source": "/portfolios",
-			"destination": "/wedding-portfolio"
-		},
-		{
-			"source": "/proofing",
-			"destination": "/"
-		},
-		{
-			"source": "/wedding-stories",
-			"destination": "/wedding-portfolio"
-		},
-		{
-			"source": "/test-2",
-			"destination": "/"
-		},
-		{
-			"source": "/home-2",
-			"destination": "/"
-		},
-		{
-			"source": "/anisha-abhrajit",
-			"destination": "/wedding-portfolio"
-		},
-		{
-			"source": "/sikh-wedding",
-			"destination": "/"
-		},
-		{
-			"source": "/fusion-wedding",
-			"destination": "/"
-		},
-		{
-			"source": "/pre-cinematography",
-			"destination": "/"
-		},
-		{
-			"source": "/cinematic-prewedding-film",
-			"destination": "/films"
-		},
-		{
-			"source": "/bengali-wedding-photographers",
-			"destination": "/bengali-wedding-photography"
-		},
-		{
-			"source": "/new-born-baby",
-			"destination": "/baby-photoshoot"
-		},
-		{
-			"source": "/best-wedding-photographer",
-			"destination": "/"
-		},
-		{
-			"source": "/fullscreen/fullscreen-slideshow",
-			"destination": "/"
-		},
-		{
-			"source": "/pre-wedding-photography-2",
-			"destination": "/pre-wedding-photography"
-		},
-		{
-			"source": "/maternity-and-new-born-baby-photography",
-			"destination": "/baby-photoshoot"
-		}
-	]
+  "redirects": [
+    {
+      "source": "/bengali-wedding",
+      "destination": "/bengali-wedding-photography"
+    },
+    {
+      "source": "/blog",
+      "destination": "/photography-blog"
+    },
+    {
+      "source": "/packages",
+      "destination": "/photography-services"
+    },
+    {
+      "source": "/portfolios",
+      "destination": "/wedding-portfolio"
+    },
+    {
+      "source": "/proofing",
+      "destination": "/"
+    },
+    {
+      "source": "/wedding-stories",
+      "destination": "/wedding-portfolio"
+    },
+    {
+      "source": "/test-2",
+      "destination": "/"
+    },
+    {
+      "source": "/home-2",
+      "destination": "/"
+    },
+    {
+      "source": "/anisha-abhrajit",
+      "destination": "/wedding-portfolio"
+    },
+    {
+      "source": "/sikh-wedding",
+      "destination": "/"
+    },
+    {
+      "source": "/fusion-wedding",
+      "destination": "/"
+    },
+    {
+      "source": "/pre-cinematography",
+      "destination": "/"
+    },
+    {
+      "source": "/cinematic-prewedding-film",
+      "destination": "/films"
+    },
+    {
+      "source": "/bengali-wedding-photographers",
+      "destination": "/bengali-wedding-photography"
+    },
+    {
+      "source": "/new-born-baby",
+      "destination": "/baby-photoshoot"
+    },
+    {
+      "source": "/best-wedding-photographer",
+      "destination": "/"
+    },
+    {
+      "source": "/fullscreen/fullscreen-slideshow",
+      "destination": "/"
+    },
+    {
+      "source": "/pre-wedding-photography-2",
+      "destination": "/pre-wedding-photography"
+    },
+    {
+      "source": "/maternity-and-new-born-baby-photography",
+      "destination": "/baby-photoshoot"
+    },
+    {
+      "source": "/kids-maternity-photography",
+      "destination": "/baby-photoshoot"
+    },
+    {
+      "source": "/tag/bengali-wedding-photographers-in-kolkata",
+      "destination": "/bengali-wedding-photography"
+    },
+    {
+      "source": "/cinematic-baby-videos",
+      "destination": "/kids-portfolio"
+    },
+    {
+      "source": "/tag/candid-photographer-in-kolkata",
+      "destination": "/"
+    },
+    {
+      "source": "/cinematic-full-wedding-film",
+      "destination": "/films"
+    },
+    {
+      "source": "/tag/best-candid-photographer-in-kolkata",
+      "destination": "/films"
+    },
+    {
+      "source": "/tag/best-wedding-photographer-in-kolkata",
+      "destination": "/films"
+    },
+    {
+      "source": "/awards",
+      "destination": "/"
+    },
+    {
+      "source": "/feed",
+      "destination": "/"
+    },
+    {
+      "source": "/punjabi-wedding",
+      "destination": "/"
+    },
+    {
+      "source": "/page/2",
+      "destination": "/"
+    },
+    {
+      "source": "/tag/destination-wedding-photographer-in-india",
+      "destination": "/"
+    },
+    {
+      "source": "/contact-us",
+      "destination": "/join-us"
+    },
+    {
+      "source": "/pre-post-wedding-photography",
+      "destination": "/"
+    },
+    {
+      "source": "/category/candid-wedding-photography",
+      "destination": "/"
+    },
+    {
+      "source": "/tag/pre-wedding-photographer-india",
+      "destination": "/pre-wedding-photography"
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about-rig"
+    },
+    {
+      "source": "/blog/photographer-in-patna",
+      "destination": "/wedding-photographer-in-patna"
+    },
+    {
+      "source": "/about",
+      "destination": "/about-rig"
+    },
+    {
+      "source": "/wedding-films",
+      "destination": "/films"
+    },
+    {
+      "source": "/cinematography-wedding-films",
+      "destination": "/films"
+    }
+  ]
 }
