@@ -43,7 +43,7 @@ const TestimonialSection = ({ slice }) => {
           <h2 className="section-title section-title-upper larger text-center">
             {heading?.[0]?.text}
           </h2>
-
+          <div className="space10"></div>
           <div
             className="row justify-content-center"
             style={{ rowGap: "30px" }}>
