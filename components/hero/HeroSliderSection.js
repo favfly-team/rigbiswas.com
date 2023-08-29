@@ -9,11 +9,11 @@ const HeroSliderSection = ({ slice }) => {
       <div className="hero-section bg">
         <Splide
           options={{
-            type: "fade",
-            // autoplay: true,
+            type: "loop",
+            autoplay: true,
             perPage: 1,
             perMove: 1,
-            interval: 2000,
+            interval: 4000,
             speed: 1000,
             rewind: true,
           }}>
