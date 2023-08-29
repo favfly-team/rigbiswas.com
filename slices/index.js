@@ -23,5 +23,7 @@ export { default as ReviewsGallerySection } from "../components/review/ReviewsGa
 export { default as RatingSection } from "../components/review/RatingSection";
 export { default as VideoFilmsSection } from "../components/gallery/VideoFilmsSection";
 export { default as VideoHeroSection } from "../components/hero/VideoHeroSection";
+export { default as TestimonialSection } from "../components/testimonial/TestimonialSection";
+export { default as HeroSliderSection } from "../components/hero/HeroSliderSection";
 
 export { default as SliceZone } from "./SliceZone";

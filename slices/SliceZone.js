@@ -24,6 +24,8 @@ import {
   ReviewsGallerySection,
   RatingSection,
   VideoFilmsSection,
+  TestimonialSection,
+  HeroSliderSection,
 } from "./";
 
 const SliceZone = ({ sliceZone }) => (
@@ -32,6 +34,8 @@ const SliceZone = ({ sliceZone }) => (
       switch (slice.slice_type) {
         case "hero_section":
           return <HeroSection slice={slice} key={`slice-${index}`} />;
+        case "hero_slider_section":
+          return <HeroSliderSection slice={slice} key={`slice-${index}`} />;
         case "about_hero_section":
           return <AboutHeroSection slice={slice} key={`slice-${index}`} />;
         case "portfolio_section":
@@ -84,6 +88,8 @@ const SliceZone = ({ sliceZone }) => (
           return <VideoFilmsSection slice={slice} key={`slice-${index}`} />;
         case "video_hero_section":
           return <VideoHeroSection slice={slice} key={`slice-${index}`} />;
+        case "testimonial_section":
+          return <TestimonialSection slice={slice} key={`slice-${index}`} />;
 
         default:
           return null;
