@@ -1,6 +1,6 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import Link from "next/link";
+import { DocLink } from "../../utils/prismicHelpers";
 import { RichText } from "prismic-reactjs";
 
 const HeroSliderSection = ({ slice }) => {
@@ -10,7 +10,7 @@ const HeroSliderSection = ({ slice }) => {
         <Splide
           options={{
             type: "fade",
-            autoplay: true,
+            // autoplay: true,
             perPage: 1,
             perMove: 1,
             interval: 2000,
@@ -19,15 +19,15 @@ const HeroSliderSection = ({ slice }) => {
           }}>
           {slice?.items?.map((item, index) => (
             <SplideSlide key={index}>
-              <Link href={item?.link?.url || "#"}>
-                <a target="_blank">
+              <DocLink link={item?.link}>
+                <a>
                   <img
                     className="w-100"
                     src={item?.image?.url}
                     alt={item?.image?.alt}
                   />
                 </a>
-              </Link>
+              </DocLink>
             </SplideSlide>
           ))}
         </Splide>
