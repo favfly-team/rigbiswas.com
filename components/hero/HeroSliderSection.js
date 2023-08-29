@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-import { DocLink } from "../../utils/prismicHelpers";
 import { RichText } from "prismic-reactjs";
+import Link from "next/link";
 
 const HeroSliderSection = ({ slice }) => {
   return (
@@ -14,20 +14,19 @@ const HeroSliderSection = ({ slice }) => {
             perPage: 1,
             perMove: 1,
             interval: 4000,
-            speed: 1000,
-            rewind: true,
+            speed: 500,
           }}>
           {slice?.items?.map((item, index) => (
             <SplideSlide key={index}>
-              <DocLink link={item?.link}>
-                <a>
+              <Link href={item?.link?.url || "#"}>
+                <a target={item?.link?.url ? "_blank" : "_self"}>
                   <img
                     className="w-100"
                     src={item?.image?.url}
                     alt={item?.image?.alt}
                   />
                 </a>
-              </DocLink>
+              </Link>
             </SplideSlide>
           ))}
         </Splide>
