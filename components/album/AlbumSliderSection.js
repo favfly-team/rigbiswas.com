@@ -77,6 +77,15 @@ const AlbumSliderSection = ({ slice }) => {
           background-size: contain;
         }
 
+        @keyframes slide {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-6000px, 0, 0);
+          }
+        }
+
         .btn-secondary {
           color: #0072ff;
           font-size: 28px;
