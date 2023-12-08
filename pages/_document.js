@@ -77,6 +77,13 @@ class MyDocument extends Document {
             src="https://plausible.io/js/plausible.js"></script>
         </Head>
         <body>
+          {/* <!-- Google Tag Manager (noscript) --> */}
+          <noscript
+            dangerouslySetInnerHTML={{
+              __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BCK8QC9"
+              height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+            }}></noscript>
+
           <Main />
           <NextScript />
         </body>
