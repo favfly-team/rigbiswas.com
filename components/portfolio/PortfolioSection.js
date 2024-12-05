@@ -9,7 +9,7 @@ const PortfolioSection = ({ slice }) => {
       <div className="container inner">
         <Heading data={slice} />
         <div className="tiles text-center">
-          <div className="items row">
+          <div className="items row justify-content-center">
             {slice?.items?.map((item, index) => (
               <PortfolioItem key={index} data={item} />
             ))}

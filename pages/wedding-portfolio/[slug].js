@@ -63,7 +63,7 @@ export async function getServerSideProps({
   // 	{ pageSize: 6, orderings: '[my.blog_post.date desc]' }
   // );
 
-  if (doc.id == undefined) {
+  if (doc.id == undefined || doc?.data?.type !== "Wedding") {
     return {
       props: null,
       notFound: true,
