@@ -3,7 +3,6 @@ import Link from "next/link";
 import Heading from "../heading/Heading";
 
 const PortfolioSection = ({ slice }) => {
-  // console.log(slice);
   return (
     <section className="wrapper light-wrapper">
       <div className="container inner">
@@ -11,11 +10,21 @@ const PortfolioSection = ({ slice }) => {
         <div className="tiles text-center">
           <div className="items row justify-content-center">
             {slice?.items?.map((item, index) => (
-              <PortfolioItem key={index} data={item} />
+              <PortfolioItem
+                key={index}
+                data={item}
+                portfolioType={slice?.primary?.type}
+              />
             ))}
           </div>
           {slice?.items?.length < 7 && (
-            <Link href="/wedding-portfolio">
+            <Link
+              href={
+                slice?.primary?.type === "Kids"
+                  ? "/kids-portfolio"
+                  : "/wedding-portfolio"
+              }
+            >
               <a className="btn shadow">View More</a>
             </Link>
           )}
@@ -25,12 +34,16 @@ const PortfolioSection = ({ slice }) => {
   );
 };
 
-const PortfolioItem = ({ data }) => {
+const PortfolioItem = ({ data, portfolioType }) => {
   const { image, location, title, type, link } = data;
+
+  const linkType =
+    portfolioType === "Kids" ? "kids-portfolio" : "wedding-portfolio";
+
   return (
     <div className="item col-md-6 col-lg-4">
       <figure className="overlay overlay1 rounded mb-20">
-        <Link href={`/wedding-portfolio/${link?.uid}`}>
+        <Link href={`/${linkType}/${link?.uid}`}>
           <a>
             <img
               key={image.url}
