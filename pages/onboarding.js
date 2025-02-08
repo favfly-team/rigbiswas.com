@@ -13,7 +13,8 @@ const OnboardingPage = () => {
       <div className="container px-0">
         <div className="col-lg-6 px-0 mx-auto">
           <iframe
-            style={{ border: "none", width: "100%" }}
+            className="bg-white"
+            style={{ border: "none", width: "100%", borderRadius: "20px" }}
             id="rp-webapp-onboarding-gritia"
             src={`https://opnform.com/forms/rp-webapp-onboarding-gritia?206e53ea-115e-46be-b159-72de0bab1722=${uid}`}
           />
@@ -23,7 +24,8 @@ const OnboardingPage = () => {
       <style jsx>{`
         iframe {
           margin-top: 100px;
-          height: 1100px;
+          height: 950px;
+          margin-bottom: 100px;
         }
       `}</style>
     </>
