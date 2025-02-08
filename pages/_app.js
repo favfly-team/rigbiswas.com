@@ -40,14 +40,6 @@ function MyApp({ Component, pageProps }) {
     return currentTime > expirationTime;
   };
 
-  useEffect(() => {
-    if (isTimerExpired()) {
-      timeoutId = setTimeout(() => {
-        setShowModal(true);
-      }, 1000 * 15);
-    }
-  }, [router]);
-
   //Binding events.
   Router.events.on("routeChangeStart", () => {
     NProgress.start();
@@ -59,6 +51,16 @@ function MyApp({ Component, pageProps }) {
   const [isModal, setIsModal] = useState(false);
 
   useEffect(() => {
+    if (router.pathname === "/onboarding") {
+      return;
+    }
+
+    if (isTimerExpired()) {
+      timeoutId = setTimeout(() => {
+        setShowModal(true);
+      }, 1000 * 15);
+    }
+
     // console.log(router);
     const queryParams = new URLSearchParams(window.location.search);
     if (queryParams.get("utm_source") == "google-ads") {

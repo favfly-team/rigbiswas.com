@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import MinimalLayout from "../components/layouts/minimalLayout";
 
 const OnboardingPage = () => {
   const [uid, setUid] = useState("");
@@ -9,8 +10,8 @@ const OnboardingPage = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="col-lg-6 mx-auto">
+      <div className="container px-0">
+        <div className="col-lg-6 px-0 mx-auto">
           <iframe
             style={{ border: "none", width: "100%" }}
             id="rp-webapp-onboarding-gritia"
@@ -28,5 +29,7 @@ const OnboardingPage = () => {
     </>
   );
 };
+
+OnboardingPage.Layout = MinimalLayout;
 
 export default OnboardingPage;
