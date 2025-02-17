@@ -262,6 +262,7 @@ const QueryModalForm = ({ showModal, setShowModal, setTimer }) => {
             </div> */}
 
             <iframe
+              loading="lazy"
               className="form"
               style={{ border: "none", width: "100%" }}
               id="rp-website-booking-sk401a"

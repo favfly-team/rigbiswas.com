@@ -88,6 +88,7 @@ const ContactSection = ({ slice }) => {
             {/* <div className="space10"></div> */}
             <div className="form-container">
               <iframe
+                loading="lazy"
                 className="booking-form"
                 style={{ border: "none", width: "100%" }}
                 id="rp-website-booking-qzscuv"
