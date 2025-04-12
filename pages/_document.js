@@ -70,11 +70,13 @@ class MyDocument extends Document {
           <script
             async
             defer
-            src="https://static.cdn.prismic.io/prismic.js?new=true&repo=rigbiswas"></script>
+            src="https://static.cdn.prismic.io/prismic.js?new=true&repo=rigbiswas"
+          ></script>
           <script
             defer
             data-domain="rigbiswas.com"
-            src="https://plausible.io/js/plausible.js"></script>
+            src="https://plausible.io/js/plausible.js"
+          ></script>
         </Head>
         <body>
           {/* <!-- Google Tag Manager (noscript) --> */}
@@ -82,7 +84,21 @@ class MyDocument extends Document {
             dangerouslySetInnerHTML={{
               __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BCK8QC9"
               height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
-            }}></noscript>
+            }}
+          ></noscript>
+
+          {/* <!-- Meta Pixel Code --> */}
+
+          <noscript>
+            <img
+              height={1}
+              width={1}
+              style={{ display: "none" }}
+              src="https://www.facebook.com/tr?id=1847593022746412&ev=PageView&noscript=1"
+            />
+          </noscript>
+
+          {/* <!-- End Meta Pixel Code --> */}
 
           <Main />
           <NextScript />
