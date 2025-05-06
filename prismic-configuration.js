@@ -17,7 +17,7 @@ export const linkResolver = (doc) => {
   else if (doc.type === "films_page") return "/films";
   else if (doc.type === "film_page") return `/films/${doc.uid}`;
   else if (doc.type === "about_page") return "/about-rig";
-  else if (doc.type === "reviews_page") return "/reviews";
+  else if (doc.type === "reviews_page") return "/client-reviews";
   else if (doc.type === "services_page") return "/photography-services";
   else if (doc.type === "portfolio_page")
     return `/wedding-portfolio/${doc.uid}`;
@@ -37,7 +37,7 @@ export const hrefResolver = (doc) => {
   else if (doc.type === "films_page") return "/films";
   else if (doc.type === "film_page") return `/films/[slug]`;
   else if (doc.type === "about_page") return "/about-rig";
-  else if (doc.type === "reviews_page") return "/reviews";
+  else if (doc.type === "reviews_page") return "/client-reviews";
   else if (doc.type === "services_page") return "/photography-services";
   else if (doc.type === "portfolio_page") return `/wedding-portfolio/[slug]`;
   else if (doc.type === "blog_post") return `/blog/[slug]`;
