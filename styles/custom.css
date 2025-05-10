@@ -393,3 +393,8 @@ body {
     font-size: 18px;
   }
 }
+
+.details-box h3 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
