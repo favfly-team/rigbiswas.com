@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
+import { FaGoogle } from "react-icons/fa";
 
 /* eslint-disable @next/next/no-img-element */
 const ReviewsSection = ({ slice }) => {
@@ -37,12 +38,11 @@ const ReviewsSection = ({ slice }) => {
 };
 
 const ReviewItem = ({ data }) => {
-  const { image, name, review } = data;
+  const { image, name, review, link } = data;
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="col-lg-4">
       <div
-        onClick={() => setIsOpen(!isOpen)}
         className={`cbp-item m-0 h-100 rounded overflow-hidden ${
           isOpen ? "" : "review"
         }`}
@@ -59,8 +59,25 @@ const ReviewItem = ({ data }) => {
 
           <div className="p-4">
             <blockquote className="icon icon-left">
-              <RichText render={review} linkResolver={linkResolver} />
-              <footer className="blockquote-footer">{name?.[0]?.text}</footer>
+              <div className="paragraph" onClick={() => setIsOpen(!isOpen)}>
+                <RichText render={review} linkResolver={linkResolver} />
+              </div>
+              <footer className="blockquote-footer mt-20">
+                <a href={link?.url} target="_blank">
+                  {name?.[0]?.text}
+                  {link?.url && (
+                    <i
+                      style={{
+                        position: "relative",
+                        top: "-1px",
+                        marginLeft: "5px",
+                      }}
+                    >
+                      <FaGoogle />
+                    </i>
+                  )}
+                </a>
+              </footer>
             </blockquote>
           </div>
         </div>

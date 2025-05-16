@@ -26,6 +26,8 @@ import {
   VideoFilmsSection,
   TestimonialSection,
   HeroSliderSection,
+  FeaturesSection,
+  FaqSection,
 } from "./";
 
 const SliceZone = ({ sliceZone }) => (
@@ -90,6 +92,10 @@ const SliceZone = ({ sliceZone }) => (
           return <VideoHeroSection slice={slice} key={`slice-${index}`} />;
         case "testimonial_section":
           return <TestimonialSection slice={slice} key={`slice-${index}`} />;
+        case "features_section":
+          return <FeaturesSection slice={slice} key={`slice-${index}`} />;
+        case "faq_section":
+          return <FaqSection slice={slice} key={`slice-${index}`} />;
 
         default:
           return null;

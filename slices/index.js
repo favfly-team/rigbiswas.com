@@ -25,5 +25,7 @@ export { default as VideoFilmsSection } from "../components/gallery/VideoFilmsSe
 export { default as VideoHeroSection } from "../components/hero/VideoHeroSection";
 export { default as TestimonialSection } from "../components/testimonial/TestimonialSection";
 export { default as HeroSliderSection } from "../components/hero/HeroSliderSection";
+export { default as FeaturesSection } from "../components/features/FeaturesSection";
+export { default as FaqSection } from "../components/faq/FaqSection";
 
 export { default as SliceZone } from "./SliceZone";

@@ -398,3 +398,20 @@ body {
   font-size: 20px;
   margin-bottom: 0px;
 }
+
+.blockquote-footer a:hover,
+.blockquote-footer a:focus {
+  color: #404040;
+}
+
+.feature-content {
+  padding: 20px;
+}
+.feature-content h3 {
+  font-size: 20px;
+}
+.feature-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}

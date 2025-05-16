@@ -4,7 +4,7 @@ import Prismic from "@prismicio/client";
 import { Client } from "../utils/prismicHelpers";
 import { SliceZone } from "../slices";
 import SEO from "../components/seo/SEO";
-
+import Schema from "../components/schema/Schema";
 import BlogsSection from "../components/blog/BlogsSection";
 
 const IndexPage = ({ doc, blogPosts, posts }) => {
@@ -24,6 +24,7 @@ const IndexPage = ({ doc, blogPosts, posts }) => {
       <SEO doc={doc} url="https://rigbiswas.com" />
       <SliceZone sliceZone={doc.data.body} />
       <BlogsSection posts={blogPosts} />
+      <Schema schemaItems={doc?.data?.schema_items} />
     </>
   );
 };

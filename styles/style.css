@@ -417,6 +417,8 @@ blockquote p {
   line-height: 21px;
   text-transform: uppercase;
   color: inherit;
+  position: relative;
+  z-index: 2;
 }
 blockquote.icon {
   position: relative;
@@ -5649,7 +5651,11 @@ pre {
   bottom: 6px;
 }
 
-.review blockquote p {
+blockquote .paragraph p {
+  margin-bottom: 0;
+}
+
+.review blockquote .paragraph {
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;

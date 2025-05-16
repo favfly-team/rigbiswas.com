@@ -5,7 +5,7 @@ import { Client } from "../utils/prismicHelpers";
 // import { queryRepeatableDocuments } from "../utils/queries";
 import { SliceZone } from "../slices";
 import SEO from "../components/seo/SEO";
-
+import Schema from "../components/schema/Schema";
 import BlogsSection from "../components/blog/BlogsSection";
 
 const ServicePage = ({ doc, blogPosts }) => {
@@ -24,6 +24,7 @@ const ServicePage = ({ doc, blogPosts }) => {
       <SEO doc={doc} url={`https://rigbiswas.com/${doc?.uid}`} />
       <SliceZone sliceZone={doc.data.body} />
       <BlogsSection posts={blogPosts} />
+      <Schema schemaItems={doc?.data?.schema_items} />
     </>
   );
 };
