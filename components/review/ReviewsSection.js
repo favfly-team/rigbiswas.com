@@ -41,7 +41,7 @@ const ReviewItem = ({ data }) => {
   const { image, name, review, link } = data;
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="col-lg-4">
+    <div className="col-lg-4 mb-0">
       <div
         className={`cbp-item m-0 h-100 rounded overflow-hidden ${
           isOpen ? "" : "review"
