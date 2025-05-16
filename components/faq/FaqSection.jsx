@@ -9,7 +9,7 @@ const FaqSection = ({ slice }) => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="wrapper light-wrapper">
+    <div className="wrapper">
       <div className="container inner">
         <h2 className="section-title section-title-upper larger text-center">
           {heading?.[0]?.text}
@@ -42,7 +42,7 @@ const FaqItem = ({ data, isOpen, setIsOpen, index }) => {
   return (
     <div className="item grid-sizer col-12">
       <div
-        className="rounded feature-card overflow-hidden"
+        className="rounded feature-card overflow-hidden shadow"
         style={{
           height: isOpen ? "100%" : "auto",
         }}
