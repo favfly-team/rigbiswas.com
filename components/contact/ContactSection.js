@@ -1,79 +1,16 @@
-// import { useState } from "react";
 import { RichText } from "prismic-reactjs";
-// import Airtable from "airtable";
-
 import { linkResolver } from "../../prismic-configuration";
-
-// const base = new Airtable({
-//   apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
-// }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID);
+import { useEffect } from "react";
 
 const ContactSection = ({ slice }) => {
   // console.log(slice);
   const { heading, contact_info } = slice.primary;
 
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   date: "",
-  //   type: "",
-  //   location: "",
-  //   message: "",
-  // });
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
-  // const [success, setSuccess] = useState(false);
+  const [source, setSource] = useState(null);
 
-  // const handleChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  //   setError(null);
-  //   setSuccess(false);
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   try {
-  //     const data = await base("Bookings").create([
-  //       {
-  //         fields: {
-  //           Name: formData.name,
-  //           Email: formData.email,
-  //           Phone: formData.phone,
-  //           Date: formData.date,
-  //           "Type of shoot": formData.type,
-  //           Location: formData.location,
-  //           Message: formData.message,
-
-  //           Source: location.href,
-  //           Status: "Todo",
-  //         },
-  //       },
-  //     ]);
-
-  //     // console.log(data);
-
-  //     setFormData({
-  //       name: "",
-  //       email: "",
-  //       phone: "",
-  //       date: "",
-  //       type: "",
-  //       location: "",
-  //       message: "",
-  //     });
-  //     setSuccess(true);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setError(error);
-  //     console.log(error);
-  //     setLoading(false);
-  //   }
-  // };
+  useEffect(() => {
+    setSource(location.href);
+  }, []);
 
   return (
     <div className="wrapper light-wrapper">
@@ -92,7 +29,7 @@ const ContactSection = ({ slice }) => {
                 className="booking-form"
                 style={{ border: "none", width: "100%" }}
                 id="rp-website-booking-qzscuv"
-                src="https://opnform.com/forms/rp-website-booking-qzscuv"
+                src={`https://opnform.com/forms/rp-website-booking-qzscuv?9c5b5bc7-1e5d-4e37-983f-a31e4b8cb04b=${source}`}
               />
 
               <style jsx>{`

@@ -1,13 +1,7 @@
 // import { useEffect, useState } from "react";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
-// import Airtable from "airtable";
-// import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
-// const base = new Airtable({
-//   apiKey: process.env.NEXT_PUBLIC_AIRTABLE_API_KEY,
-// }).base(process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID);
+import { useState, useEffect } from "react";
 
 const QueryModalForm = ({ showModal, setShowModal, setTimer }) => {
   const imgs = [
@@ -19,90 +13,11 @@ const QueryModalForm = ({ showModal, setShowModal, setTimer }) => {
     "https://images.prismic.io/rigbiswas/b1525ad9-e547-4f09-8e31-68f7d2792c5c_img+1.jpg",
   ];
 
-  // const [formData, setFormData] = useState({
-  //   eventDate: "",
-  //   eventType: "",
-  //   location: "",
-  //   phone: "",
-  //   name: "",
-  //   email: "",
-  // });
+  const [source, setSource] = useState(null);
 
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState(null);
-  // const [success, setSuccess] = useState(false);
-
-  // const handleChange = (e) => {
-  //   setFormData({
-  //     ...formData,
-  //     [e.target.name]: e.target.value,
-  //   });
-  //   setError(null);
-  //   setSuccess(false);
-  // };
-
-  // const verifyPhoneNumber = (input) => {
-  //   // Remove any non-digit characters and any leading 0 or +91
-  //   let formattedNumber = input.replace(/(^0|^(\+|00)91)?(.+)/, "$3");
-
-  //   // If the resulting number is still longer than 10 digits, or shorter than 10 digits, it is invalid
-  //   if (formattedNumber.length !== 10) {
-  //     return false;
-  //   }
-
-  //   // Return the formatted number
-  //   return formattedNumber;
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const phone = verifyPhoneNumber(formData.phone);
-
-  //   if (!phone) {
-  //     setError({
-  //       message: "Please enter a valid phone number",
-  //     });
-  //     return;
-  //   }
-
-  //   setError(null);
-  //   setLoading(true);
-  //   try {
-  //     const data = await base("Popup Queries").create([
-  //       {
-  //         fields: {
-  //           "Event Date": formData.eventDate,
-  //           "Event Type": formData.eventType,
-  //           Location: formData.location,
-  //           "WhatsApp No": formData.phone,
-  //           Name: formData.name,
-  //           Email: formData.email,
-
-  //           Status: "Todo",
-  //           Source: location.href,
-  //         },
-  //       },
-  //     ]);
-
-  //     // console.log(data);
-
-  //     setFormData({
-  //       eventDate: "",
-  //       eventType: "",
-  //       location: "",
-  //       phone: "",
-  //       name: "",
-  //       email: "",
-  //     });
-  //     setSuccess(true);
-  //     setLoading(false);
-  //   } catch (error) {
-  //     setError(error);
-  //     console.log(error);
-  //     setLoading(false);
-  //   }
-  // };
+  useEffect(() => {
+    setSource(location.href);
+  }, []);
 
   return (
     <div className={`modal fade blur ${showModal ? "show d-block" : ""}`}>
@@ -266,7 +181,7 @@ const QueryModalForm = ({ showModal, setShowModal, setTimer }) => {
               className="form"
               style={{ border: "none", width: "100%" }}
               id="rp-website-booking-sk401a"
-              src="https://opnform.com/forms/rp-website-booking-sk401a"
+              src={`https://opnform.com/forms/rp-website-booking-sk401a?d7a7d33a-6206-4789-a757-6534371244f0=${source}`}
             />
           </div>
         </div>
