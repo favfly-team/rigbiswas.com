@@ -1,6 +1,6 @@
 import { RichText } from "prismic-reactjs";
 import { linkResolver } from "../../prismic-configuration";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const ContactSection = ({ slice }) => {
   // console.log(slice);
