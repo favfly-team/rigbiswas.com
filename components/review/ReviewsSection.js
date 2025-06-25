@@ -38,7 +38,7 @@ const ReviewsSection = ({ slice }) => {
 };
 
 const ReviewItem = ({ data }) => {
-  const { image, name, review, link } = data;
+  const { image, client_image, name, review, link } = data;
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="col-lg-4 mb-0">
@@ -63,6 +63,19 @@ const ReviewItem = ({ data }) => {
                 <RichText render={review} linkResolver={linkResolver} />
               </div>
               <footer className="blockquote-footer mt-20">
+                {client_image?.url && (
+                  <img
+                    src={client_image?.url}
+                    alt={client_image?.alt}
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      marginRight: "10px",
+                      marginLeft: "5px",
+                    }}
+                  />
+                )}
                 <a href={link?.url} target="_blank">
                   {name?.[0]?.text}
                   {link?.url && (

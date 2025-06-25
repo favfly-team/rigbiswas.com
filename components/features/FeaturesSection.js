@@ -27,19 +27,42 @@ const FeaturesSection = ({ slice }) => {
 };
 
 const FeatureItem = ({ data }) => {
-  const { title, details } = data;
+  const { title, details, image, icon } = data;
 
   return (
-    <div className="item grid-sizer col-lg-6">
-      <div className="bg-white rounded feature-card h-100">
-        <div className="feature-content">
-          <h3 className="mb-10 font-weight-normal">
+    <div className="item grid-sizer col-lg-4">
+      <div className="bg-white rounded feature-card h-100 ">
+        <div className="p-3">
+          <img
+            loading="lazy"
+            src={image?.url || icon?.url}
+            alt={image?.alt || icon?.alt}
+            className={`w-100 ${icon?.url ? "icon-image" : ""}`}
+          />
+          <h3 className="mb-5 font-weight-normal">
             <strong className="font-weight-normal">{title?.[0]?.text}</strong>
           </h3>
 
           <RichText render={details} linkResolver={linkResolver} />
         </div>
       </div>
+      <style jsx>{`
+        img {
+          border-radius: 10px;
+          object-fit: cover;
+          aspect-ratio: 3/2;
+          margin-bottom: 16px;
+        }
+        .icon-image {
+          width: auto !important;
+          height: 80px !important;
+          aspect-ratio: 1/1;
+          border-radius: 0% !important;
+        }
+        h3 {
+          font-size: 1.25rem;
+        }
+      `}</style>
     </div>
   );
 };
