@@ -55,7 +55,7 @@ const FeatureItem = ({ data }) => {
         }
         .icon-image {
           width: auto !important;
-          height: 80px !important;
+          height: 60px !important;
           aspect-ratio: 1/1;
           border-radius: 0% !important;
         }
